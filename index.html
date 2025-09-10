@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generative AI: Key Learnings</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background-color: #ffffff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Container for all slides with scroll snapping */
+        .presentation-container {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+
+        /* Individual slide styling */
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            scroll-snap-align: start;
+            padding: 4rem 2rem;
+            position: relative;
+            background-color: #ffffff;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        /* Alternate slide backgrounds */
+        .slide:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        /* Slide content container */
+        .slide-content {
+            max-width: 1200px;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        /* Active slide animation */
+        .slide.active .slide-content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Typography */
+        .slide h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 300;
+            margin-bottom: 2rem;
+            color: #1a1a1a;
+            letter-spacing: -0.02em;
+            text-align: center;
+        }
+
+        .slide h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            margin-bottom: 2rem;
+            color: #1a1a1a;
+            letter-spacing: -0.02em;
+            text-align: center;
+        }
+
+        .slide p {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #666;
+            font-weight: 300;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* Image placeholder styling */
+        .image-placeholder {
+            width: 100%;
+            max-width: 500px;
+            height: 300px;
+            margin: 0 auto 3rem;
+            background-color: #f8f8f8;
+            border: 2px dashed #ddd;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 1rem;
+            font-weight: 400;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-placeholder:hover {
+            border-color: #1a1a1a;
+            color: #666;
+        }
+
+        .image-placeholder.large {
+            height: 400px;
+            max-width: 700px;
+        }
+
+        .image-placeholder.small {
+            height: 200px;
+            max-width: 300px;
+        }
+
+        /* Icon within image placeholder */
+        .image-placeholder-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ccc;
+        }
+
+        /* Two column layout for content */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            text-align: left;
+        }
+
+        .two-column .slide-text h2,
+        .two-column .slide-text p {
+            text-align: left;
+        }
+
+        /* Feature grid for multiple items */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid #e8e8e8;
+            text-align: center;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.6s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .slide.active .feature-card {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .feature-card:nth-child(2) { transition-delay: 0.1s; }
+        .feature-card:nth-child(3) { transition-delay: 0.2s; }
+        .feature-card:nth-child(4) { transition-delay: 0.3s; }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        /* Links styling */
+        .links-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .link-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border: 1px solid #1a1a1a;
+        }
+
+        .link-button:hover {
+            background-color: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .link-button.secondary {
+            background-color: transparent;
+            color: #1a1a1a;
+            border: 1px solid #ddd;
+        }
+
+        .link-button.secondary:hover {
+            background-color: #f8f8f8;
+            border-color: #1a1a1a;
+        }
+
+        .link-icon {
+            margin-right: 0.5rem;
+            font-size: 1.1em;
+        }
+
+        /* Navigation dots */
+        .nav-dots {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .nav-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-dot.active {
+            background: #1a1a1a;
+            transform: scale(1.5);
+        }
+
+        .nav-dot:hover {
+            background: #666;
+            transform: scale(1.2);
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #999;
+            font-size: 0.9rem;
+            font-weight: 400;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-8px); }
+            60% { transform: translateX(-50%) translateY(-4px); }
+        }
+
+        /* Stats/numbers styling */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .slide.active .stat-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 300;
+            color: #1a1a1a;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #666;
+            font-weight: 400;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .slide {
+                padding: 2rem 1rem;
+            }
+
+            .nav-dots {
+                right: 1rem;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .two-column .slide-text h2,
+            .two-column .slide-text p {
+                text-align: center;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+
+            .links-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .link-button {
+                min-width: 200px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slide {
+                padding: 1.5rem 1rem;
+            }
+
+            .feature-card {
+                padding: 2rem;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Loading animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .spinner {
+            width: 32px;
+            height: 32px;
+            border: 2px solid #f0f0f0;
+            border-top: 2px solid #1a1a1a;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Progress bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: #1a1a1a;
+            z-index: 1000;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading screen -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Navigation dots -->
+    <div class="nav-dots" id="navDots">
+        <!-- Dots will be generated by JavaScript -->
+    </div>
+
+    <!-- Main presentation container -->
+    <div class="presentation-container" id="presentationContainer">
+        
+        <!-- Slide 1: Introduction -->
+        <section class="slide active" data-slide="0">
+            <div class="slide-content">
+                <div class="image-placeholder large">
+                    <div class="image-placeholder-icon">🤖</div>
+                    <div>Hero Image Placeholder<br><small>(1400x800px recommended)</small></div>
+                </div>
+                <h1>Generative AI</h1>
+                <p>Exploring the revolutionary technology that's transforming how we create, work, and innovate. A comprehensive overview of key learnings and practical insights.</p>
+                <div class="links-container">
+                    <a href="#" class="link-button">
+                        <span class="link-icon">📖</span>
+                        Get Started
+                    </a>
+                    <a href="#" class="link-button secondary">
+                        <span class="link-icon">📊</span>
+                        View Research
+                    </a>
+                </div>
+                <div class="scroll-indicator">
+                    Scroll to explore ↓
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2: What is Generative AI -->
+        <section class="slide" data-slide="1">
+            <div class="slide-content">
+                <div class="two-column">
+                    <div class="slide-text">
+                        <h2>What is Generative AI?</h2>
+                        <p>Generative AI refers to artificial intelligence systems that can create new content—from text and images to code and music—based on patterns learned from vast training datasets.</p>
+                        <div class="links-container">
+                            <a href="https://openai.com/research" class="link-button">
+                                <span class="link-icon">🔬</span>
+                                OpenAI Research
+                            </a>
+                            <a href="https://www.anthropic.com" class="link-button secondary">
+                                <span class="link-icon">🧠</span>
+                                Learn More
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="image-placeholder">
+                            <div class="image-placeholder-icon">🎨</div>
+                            <div>AI Creation Process<br><small>(PNG/GIF - 800x600px)</small></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: Key Models and Technologies -->
+        <section class="slide" data-slide="2">
+            <div class="slide-content">
+                <h2>Key Models & Technologies</h2>
+                <p>The foundation of generative AI lies in powerful neural network architectures and cutting-edge machine learning techniques.</p>
+                
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="image-placeholder small">
+                            <div class="image-placeholder-icon">🔄</div>
+                            <div>Transformer Architecture</div>
+                        </div>
+                        <h3>Transformers</h3>
+                        <p>Architecture powering language models like GPT and BERT</p>
+                        <div class="links-container">
+                            <a href="https://arxiv.org/abs/1706.03762" class="link-button secondary">
+                                <span class="link-icon">📄</span>
+                                Original Paper
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="image-placeholder small">
+                            <div class="image-placeholder-icon">🎭</div>
+                            <div>GAN Visualization</div>
+                        </div>
+                        <h3>GANs</h3>
+                        <p>Generative Adversarial Networks for realistic content generation</p>
+                        <div class="links-container">
+                            <a href="https://github.com/goodfeli/adversarial" class="link-button secondary">
+                                <span class="link-icon">💻</span>
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="image-placeholder small">
+                            <div class="image-placeholder-icon">🌊</div>
+                            <div>Diffusion Process</div>
+                        </div>
+                        <h3>Diffusion Models</h3>
+                        <p>State-of-the-art image generation like DALL-E and Midjourney</p>
+                        <div class="links-container">
+                            <a href="https://stability.ai/" class="link-button secondary">
+                                <span class="link-icon">🎨</span>
+                                Stability AI
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Use Cases and Applications -->
+        <section class="slide" data-slide="3">
+            <div class="slide-content">
+                <h2>Use Cases & Applications</h2>
+                <p>Generative AI is revolutionizing industries and creating new possibilities across various domains.</p>
+                
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <span class="stat-number">75%</span>
+                        <span class="stat-label">Productivity Increase</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">$4.4T</span>
+                        <span class="stat-label">Economic Impact Potential</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">300+</span>
+                        <span class="stat-label">Use Cases Identified</span>
+                    </div>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3>💼 Business & Marketing</h3>
+                        <p>Content creation, customer service automation, and personalized marketing campaigns</p>
+                        <div class="links-container">
+                            <a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier" class="link-button secondary">
+                                <span class="link-icon">📊</span>
+                                McKinsey Report
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>🎓 Education & Training</h3>
+                        <p>Personalized learning paths, content generation, and interactive tutoring systems</p>
+                        <div class="links-container">
+                            <a href="https://www.khanacademy.org/khan-labs" class="link-button secondary">
+                                <span class="link-icon">🧑‍🏫</span>
+                                Khan Academy AI
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>🏥 Healthcare & Research</h3>
+                        <p>Drug discovery, medical imaging analysis, and diagnostic assistance</p>
+                        <div class="links-container">
+                            <a href="https://www.deepmind.com/research/highlighted-research/alphafold" class="link-button secondary">
+                                <span class="link-icon">🔬</span>
+                                AlphaFold
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>🎬 Creative Industries</h3>
+                        <p>Content production, game development, and digital art creation</p>
+                        <div class="links-container">
+                            <a href="https://runwayml.com/" class="link-button secondary">
+                                <span class="link-icon">🎥</span>
+                                Runway ML
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Ethical Considerations -->
+        <section class="slide" data-slide="4">
+            <div class="slide-content">
+                <div class="two-column">
+                    <div class="slide-visual">
+                        <div class="image-placeholder">
+                            <div class="image-placeholder-icon">⚖️</div>
+                            <div>Ethics Infographic<br><small>(PNG/GIF - 800x600px)</small></div>
+                        </div>
+                    </div>
+                    <div class="slide-text">
+                        <h2>Ethical Considerations</h2>
+                        <p>As generative AI becomes more powerful, we must carefully consider its impact on society, privacy, and human creativity.</p>
+                        <div class="links-container">
+                            <a href="https://www.partnership.ai/" class="link-button">
+                                <span class="link-icon">🤝</span>
+                                Partnership on AI
+                            </a>
+                            <a href="https://aiethicsinitiative.org/" class="link-button secondary">
+                                <span class="link-icon">📋</span>
+                                AI Ethics Guide
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-grid" style="margin-top: 4rem;">
+                    <div class="feature-card">
+                        <h3>🔒 Privacy & Security</h3>
+                        <p>Protecting personal data and ensuring secure AI implementations</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>📚 Intellectual Property</h3>
+                        <p>Respecting copyrights and fair use in AI-generated content</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🎯 Bias & Fairness</h3>
+                        <p>Ensuring inclusive and unbiased AI outputs across all demographics</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🤝 Human Collaboration</h3>
+                        <p>Balancing AI automation with human creativity and employment</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Tools and Resources -->
+        <section class="slide" data-slide="5">
+            <div class="slide-content">
+                <h2>Tools & Resources</h2>
+                <p>Essential platforms, frameworks, and learning resources for working with generative AI.</p>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="image-placeholder small">
+                            <div class="image-placeholder-icon">🛠️</div>
+                            <div>Development Tools</div>
+                        </div>
+                        <h3>Development Platforms</h3>
+                        <p>APIs and frameworks for building AI-powered applications</p>
+                        <div class="links-container">
+                            <a href="https://platform.openai.com/" class="link-button secondary">
+                                <span class="link-icon">🔧</span>
+                                OpenAI API
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="image-placeholder small">
+                            <div class="image-placeholder-icon">🎨</div>
+                            <div>Creative Tools</div>
+                        </div>
+                        <h3>Creative Applications</h3>
+                        <p>User-friendly tools for content creation and design</p>
+                        <div class="links-container">
+                            <a href="https://www.midjourney.com/" class="link-button secondary">
+                                <span class="link-icon">🖼️</span>
+                                Midjourney
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="image-placeholder small">
+                            <div class="image-placeholder-icon">📚</div>
+                            <div>Learning Resources</div>
+                        </div>
+                        <h3>Educational Content</h3>
+                        <p>Courses, tutorials, and documentation for learning AI</p>
+                        <div class="links-container">
+                            <a href="https://www.deeplearning.ai/" class="link-button secondary">
+                                <span class="link-icon">🎓</span>
+                                DeepLearning.AI
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="image-placeholder small">
+                            <div class="image-placeholder-icon">🌐</div>
+                            <div>Community Resources</div>
+                        </div>
+                        <h3>Community & Forums</h3>
+                        <p>Connect with other AI practitioners and researchers</p>
+                        <div class="links-container">
+                            <a href="https://huggingface.co/" class="link-button secondary">
+                                <span class="link-icon">🤗</span>
+                                Hugging Face
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7: Summary and Next Steps -->
+        <section class="slide" data-slide="6">
+            <div class="slide-content">
+                <h2>Key Learnings & Next Steps</h2>
+                <p>Generative AI represents a paradigm shift in technology. Success lies in embracing its potential while maintaining ethical responsibility.</p>
+                
+                <div class="image-placeholder large" style="margin: 3rem auto;">
+                    <div class="image-placeholder-icon">🚀</div>
+                    <div>Future Vision Infographic<br><small>(PNG/GIF - 1200x800px)</small></div>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3>📖 Continuous Learning</h3>
+                        <p>Stay updated with rapid developments in AI research and applications</p>
+                        <div class="links-container">
+                            <a href="https://arxiv.org/list/cs.AI/recent" class="link-button secondary">
+                                <span class="link-icon">📄</span>
+                                ArXiv Papers
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>🛠️ Hands-on Practice</h3>
+                        <p>Experiment with tools and integrate AI into your workflows</p>
+                        <div class="links-container">
+                            <a href="https://colab.research.google.com/" class="link-button secondary">
+                                <span class="link-icon">💻</span>
+                                Google Colab
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>🌍 Responsible Development</h3>
+                        <p>Prioritize ethics and societal impact in AI implementations</p>
+                        <div class="links-container">
+                            <a href="https://www.ai-ethics.org/" class="link-button secondary">
+                                <span class="link-icon">⚖️</span>
+                                Ethics Framework
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="links-container" style="margin-top: 4rem;">
+                    <a href="mailto:contact@example.com" class="link-button">
+                        <span class="link-icon">✉️</span>
+                        Get in Touch
+                    </a>
+                    <a href="https://github.com/yourusername/genai-presentation" class="link-button secondary">
+                        <span class="link-icon">📁</span>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // JavaScript for presentation functionality
+        class AIPresentation {
+            constructor() {
+                this.slides = document.querySelectorAll('.slide');
+                this.navDots = document.getElementById('navDots');
+                this.presentationContainer = document.getElementById('presentationContainer');
+                this.progressBar = document.getElementById('progressBar');
+                this.currentSlide = 0;
+                this.isScrolling = false;
+                
+                this.init();
+            }
+
+            // Initialize the presentation
+            init() {
+                this.createNavigationDots();
+                this.bindEvents();
+                this.hideLoading();
+                this.updateActiveSlide();
+                this.updateProgressBar();
+                
+                // Set first slide as active
+                this.slides[0].classList.add('active');
+            }
+
+            // Hide loading screen with animation
+            hideLoading() {
+                setTimeout(() => {
+                    const loading = document.getElementById('loading');
+                    loading.classList.add('fade-out');
+                    setTimeout(() => {
+                        loading.style.display = 'none';
+                    }, 500);
+                }, 800);
+            }
+
+            // Create navigation dots dynamically
+            createNavigationDots() {
+                this.slides.forEach((slide, index) => {
+                    const dot = document.createElement('div');
+                    dot.className = 'nav-dot';
+                    if (index === 0) dot.classList.add('active');
+                    dot.addEventListener('click', () => this.goToSlide(index));
+                    this.navDots.appendChild(dot);
+                });
+            }
+
+            // Update progress bar
+            updateProgressBar() {
+                const progress = ((this.currentSlide + 1) / this.slides.length) * 100;
+                this.progressBar.style.width = `${progress}%`;
+            }
+
+            // Bind scroll and keyboard events
+            bindEvents() {
+                // Scroll event listener with throttling
+                this.presentationContainer.addEventListener('scroll', this.throttle(() => {
+                    this.handleScroll();
+                }, 100));
+
+                // Keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    switch(e.key) {
+                        case 'ArrowDown':
+                        case ' ':
+                            e.preventDefault();
+                            this.nextSlide();
+                            break;
+                        case 'ArrowUp':
+                            e.preventDefault();
+                            this.prevSlide();
+                            break;
+                        case 'Home':
+                            e.preventDefault();
+                            this.goToSlide(0);
+                            break;
+                        case 'End':
+                            e.preventDefault();
+                            this.goToSlide(this.slides.length - 1);
+                            break;
+                    }
+                });
+
+                // Touch/swipe support for mobile
+                let touchStartY = 0;
+                let touchEndY = 0;
+
+                this.presentationContainer.addEventListener('touchstart', (e) => {
+                    touchStartY = e.changedTouches[0].screenY;
+                });
+
+                this.presentationContainer.addEventListener('touchend', (e) => {
+                    touchEndY = e.changedTouches[0].screenY;
+                    this.handleSwipe(touchStartY, touchEndY);
+                });
+
+                // Window resize handler
+                window.addEventListener('resize', this.throttle(() => {
+                    this.updateActiveSlide();
+                }, 250));
+            }
+
+            // Handle scroll events to determine active slide
+            handleScroll() {
+                const scrollTop = this.presentationContainer.scrollTop;
+                const slideHeight = window.innerHeight;
+                const newCurrentSlide = Math.round(scrollTop / slideHeight);
+                
+                if (newCurrentSlide !== this.currentSlide && newCurrentSlide >= 0 && newCurrentSlide < this.slides.length) {
+                    this.currentSlide = newCurrentSlide;
+                    this.updateActiveSlide();
+                    this.updateProgressBar();
+                }
+            }
+
+            // Handle touch swipe gestures
+            handleSwipe(startY, endY) {
+                const swipeThreshold = 50;
+                const diff = startY - endY;
+
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        this.nextSlide();
+                    } else {
+                        this.prevSlide();
+                    }
+                }
+            }
+
+            // Update active slide and navigation
+            updateActiveSlide() {
+                // Update slide classes
+                this.slides.forEach((slide, index) => {
+                    slide.classList.toggle('active', index === this.currentSlide);
+                });
+
+                // Update navigation dots
+                const dots = this.navDots.querySelectorAll('.nav-dot');
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === this.currentSlide);
+                });
+            }
+
+            // Navigate to specific slide
+            goToSlide(slideIndex) {
+                if (slideIndex >= 0 && slideIndex < this.slides.length) {
+                    this.currentSlide = slideIndex;
+                    const scrollTop = slideIndex * window.innerHeight;
+                    
+                    this.presentationContainer.scrollTo({
+                        top: scrollTop,
+                        behavior: 'smooth'
+                    });
+                    
+                    this.updateActiveSlide();
+                    this.updateProgressBar();
+                }
+            }
+
+            // Navigate to next slide
+            nextSlide() {
+                if (this.currentSlide < this.slides.length - 1) {
+                    this.goToSlide(this.currentSlide + 1);
+                }
+            }
+
+            // Navigate to previous slide
+            prevSlide() {
+                if (this.currentSlide > 0) {
+                    this.goToSlide(this.currentSlide - 1);
+                }
+            }
+
+            // Utility function to throttle events
+            throttle(func, limit) {
+                let inThrottle;
+                return function() {
+                    const args = arguments;
+                    const context = this;
+                    if (!inThrottle) {
+                        func.apply(context, args);
+                        inThrottle = true;
+                        setTimeout(() => inThrottle = false, limit);
+                    }
+                }
+            }
+        }
+
+        // Initialize presentation when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new AIPresentation();
+        });
+
+        // Add performance optimizations
+        window.addEventListener('load', () => {
+            // Preload next slides for smooth transitions
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach(slide => {
+                slide.style.willChange = 'transform, opacity';
+            });
+
+            // Smooth link transitions
+            const links = document.querySelectorAll('.link-button');
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    // Add click animation
+                    link.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        link.style.transform = '';
+                    }, 150);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
