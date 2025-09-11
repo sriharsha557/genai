@@ -87,7 +87,8 @@ p {
 .presenters {
     text-align: center;
     margin-top: 20px;
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem); /* A smaller, more suitable clamp range */
+    color: #fff; /* Example: Changed color to white for visibility */
 }
 
 .presenters p {
