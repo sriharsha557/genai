@@ -35,12 +35,12 @@ body {
 }
 
 #concepts {
-    background: #f0f8ff;
+    background: linear-gradient(135deg, #74b9ff 0%, #0984e3 50%, #a29bfe 100%);
     text-align: center;
 }
 
 #projects {
-    background: white;
+    background: linear-gradient(135deg, #667db6 0%, #0082c8 25%, #0078ff 50%, #006fff 100%);
     text-align: center;
 }
 
