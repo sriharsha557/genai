@@ -34,16 +34,21 @@ function addWaveAnimation() {
         title.appendChild(span);
     });
 }
-// Start typewriter after a delay
 function addTypewriterAnimation() {
     const title = document.getElementById('typewriter-title');
     if (title) {
-        // Delay the typewriter animation
-        setTimeout(() => {
-            title.classList.add('typewriter-cursor', 'typewriter-animation');
-        }, 3000); // Start 3 seconds after page load
+        console.log('Found typewriter title:', title.textContent); // Debug line
+        title.classList.add('typewriter-cursor', 'typewriter-animation');
+    } else {
+        console.log('Typewriter title not found'); // Debug line
     }
 }
+
+// Make sure this runs when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    addWaveAnimation(); // Your existing wave animation
+    addTypewriterAnimation(); // Typewriter animation
+});
 // Apply the animation when the page loads
 document.addEventListener('DOMContentLoaded', addWaveAnimation);
 // Keyboard navigation
