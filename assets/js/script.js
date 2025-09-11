@@ -20,6 +20,23 @@ window.addEventListener('scroll', () => {
     });
 });
 
+function addWaveAnimation() {
+    const title = document.getElementById('animated-title');
+    const text = title.textContent;
+    title.innerHTML = '';
+    title.classList.add('wave-text');
+    
+    // Split text into characters and wrap each in a span
+    text.split('').forEach((char, index) => {
+        const span = document.createElement('span');
+        span.textContent = char === ' ' ? '\u00A0' : char; // Use non-breaking space for spaces
+        span.style.animationDelay = `${index * 0.1}s`; // Stagger animation
+        title.appendChild(span);
+    });
+}
+
+// Apply the animation when the page loads
+document.addEventListener('DOMContentLoaded', addWaveAnimation);
 // Keyboard navigation
 document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowDown' && currentSection < sections.length - 1) {
