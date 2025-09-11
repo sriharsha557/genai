@@ -19,7 +19,19 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+function addTypewriterAnimation() {
+    const title = document.getElementById('typewriter-title');
+    if (title) {
+        // Add the typewriter classes
+        title.classList.add('typewriter-cursor', 'typewriter-animation');
+    }
+}
 
+// Apply both animations when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    addWaveAnimation(); // Your existing wave animation
+    addTypewriterAnimation(); // New typewriter animation
+});
 function addWaveAnimation() {
     const title = document.getElementById('animated-title');
     const text = title.textContent;
