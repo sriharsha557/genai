@@ -155,7 +155,7 @@ p {
 .thankyou-image {
     width: 100%;
     max-width: 400px;
-    height: 300px; /* Add a fixed height */
+    height: 300px;
     background: rgba(255,255,255,0.2);
     border-radius: 15px;
     margin: 2rem auto;
@@ -164,7 +164,7 @@ p {
     justify-content: center;
     font-size: 1.1rem;
     backdrop-filter: blur(10px);
-    overflow: hidden; /* Add this */
+    overflow: hidden;
 }
 
 .thankyou-image img {
