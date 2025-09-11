@@ -216,3 +216,41 @@ p {
         transform: translateY(-20px);
     }
 }
+.page {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px;
+}
+
+.image-container {
+  width: 40%;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.content {
+  width: 60%;
+  padding: 20px;
+}
+
+.image-container.left {
+  order: 0; /* Image first */
+}
+
+.image-container.right {
+  order: 1; /* Image last */
+}
+
+/* Optional: alternate background for pages */
+.page:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.page:nth-child(even) {
+  background-color: #ffffff;
+}
