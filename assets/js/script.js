@@ -44,7 +44,7 @@ document.addEventListener('keydown', (e) => {
         sections[currentSection - 1].scrollIntoView({ behavior: 'smooth' });
     }
 });
-function document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     const typewriterElement = document.getElementById('typewriter-title');
     
     // Add animation class when element is in view
