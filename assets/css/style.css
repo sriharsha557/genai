@@ -174,20 +174,18 @@ p {
     display: inline-block;
     animation: wave 2s ease-in-out infinite;
 }
-/* Import Google Font */
-@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
 
-/* Typewriter styles */
 .typewriter-cursor {
     position: relative;
     width: 24em;
     margin: 0 auto;
-    border-right: 2px solid rgba(255,255,255,.75);
+    border-right: 2px solid rgba(255,255,255,.75); /* White cursor */
     font-size: 30px;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
     font-family: 'Anonymous Pro', monospace;
+    color: black; /* Black text */
 }
 
 /* Animation */
