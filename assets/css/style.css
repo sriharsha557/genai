@@ -183,7 +183,7 @@ p {
     animation: wave 2s ease-in-out infinite;
 }
 
-.typewriter-cursor {
+#typewriter-title {
     position: relative;
     width: 24em;
     margin: 0 auto;
@@ -196,11 +196,11 @@ p {
     color: black;
 }
 
-.typewriter-animation {
+#typewriter-title.typewriter-animation {
     animation: 
         typewriter 5s steps(50) 1s 1 normal both, 
-        blinkingCursor 500ms steps(50) 6s normal, /* Stop blinking after 6s */
-        hideCursor 0s 6s forwards; /* Hide cursor after 6s */
+        blinkingCursor 500ms steps(50) 6s normal,
+        hideCursor 0s 6s forwards;
 }
 
 @keyframes typewriter {
