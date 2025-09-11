@@ -34,6 +34,16 @@ function addWaveAnimation() {
         title.appendChild(span);
     });
 }
+// Apply the animation when the page loads
+document.addEventListener('DOMContentLoaded', addWaveAnimation);
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown' && currentSection < sections.length - 1) {
+        sections[currentSection + 1].scrollIntoView({ behavior: 'smooth' });
+    } else if (e.key === 'ArrowUp' && currentSection > 0) {
+        sections[currentSection - 1].scrollIntoView({ behavior: 'smooth' });
+    }
+});
 function addTypewriterAnimation() {
     const title = document.getElementById('typewriter-title');
     if (title) {
@@ -48,14 +58,4 @@ function addTypewriterAnimation() {
 document.addEventListener('DOMContentLoaded', function() {
     addWaveAnimation(); // Your existing wave animation
     addTypewriterAnimation(); // Typewriter animation
-});
-// Apply the animation when the page loads
-document.addEventListener('DOMContentLoaded', addWaveAnimation);
-// Keyboard navigation
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowDown' && currentSection < sections.length - 1) {
-        sections[currentSection + 1].scrollIntoView({ behavior: 'smooth' });
-    } else if (e.key === 'ArrowUp' && currentSection > 0) {
-        sections[currentSection - 1].scrollIntoView({ behavior: 'smooth' });
-    }
 });
