@@ -46,16 +46,28 @@ document.addEventListener('keydown', (e) => {
 });
 function addTypewriterAnimation() {
     const title = document.getElementById('typewriter-title');
-    if (title) {
-        console.log('Found typewriter title:', title.textContent); // Debug line
-        title.classList.add('typewriter-cursor', 'typewriter-animation');
-    } else {
-        console.log('Typewriter title not found'); // Debug line
-    }
+    if (!title) return;
+    
+    const text = title.textContent;
+    title.textContent = '';
+    title.style.borderRight = '2px solid rgba(0,0,0,.75)';
+    title.style.fontFamily = "'Anonymous Pro', monospace";
+    title.style.color = 'black';
+    
+    let i = 0;
+    const typeWriter = () => {
+        if (i < text.length) {
+            title.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 150); // Adjust speed here
+        } else {
+            // Optional: Remove cursor after typing
+            setTimeout(() => {
+                title.style.borderRight = 'none';
+            }, 1000);
+        }
+    };
+    
+    // Start typing after 1 second delay
+    setTimeout(typeWriter, 1000);
 }
-
-// Make sure this runs when page loads
-document.addEventListener('DOMContentLoaded', function() {
-    addWaveAnimation(); // Your existing wave animation
-    addTypewriterAnimation(); // Typewriter animation
-});
