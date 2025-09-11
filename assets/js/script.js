@@ -44,30 +44,19 @@ document.addEventListener('keydown', (e) => {
         sections[currentSection - 1].scrollIntoView({ behavior: 'smooth' });
     }
 });
-function addTypewriterAnimation() {
-    const title = document.getElementById('typewriter-title');
-    if (!title) return;
+function document.addEventListener('DOMContentLoaded', function() {
+    const typewriterElement = document.getElementById('typewriter-title');
     
-    const text = title.textContent;
-    title.textContent = '';
-    title.style.borderRight = '2px solid rgba(0,0,0,.75)';
-    title.style.fontFamily = "'Anonymous Pro', monospace";
-    title.style.color = 'black';
+    // Add animation class when element is in view
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('typewriter-animation');
+            }
+        });
+    });
     
-    let i = 0;
-    const typeWriter = () => {
-        if (i < text.length) {
-            title.textContent += text.charAt(i);
-            i++;
-            setTimeout(typeWriter, 150); // Adjust speed here
-        } else {
-            // Optional: Remove cursor after typing
-            setTimeout(() => {
-                title.style.borderRight = 'none';
-            }, 1000);
-        }
-    };
-    
-    // Start typing after 1 second delay
-    setTimeout(typeWriter, 1000);
-}
+    if (typewriterElement) {
+        observer.observe(typewriterElement);
+    }
+});
