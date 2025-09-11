@@ -11,6 +11,7 @@ body {
     background-color: #f8f9fa;
     scroll-behavior: smooth;
     overflow-x: hidden;
+    scroll-snap-type: y proximity;
 }
 
 section {
@@ -22,10 +23,6 @@ section {
     padding: 2rem;
     position: relative;
     scroll-snap-align: start;
-}
-
-body {
-    scroll-snap-type: y proximity;
 }
 
 #intro {
@@ -85,6 +82,14 @@ p {
     border: 1px solid rgba(255,255,255,0.3);
 }
 
+.hero-image img {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
 .concepts-grid,
 .projects-grid {
     display: grid;
@@ -93,6 +98,8 @@ p {
     max-width: 1200px;
     margin: 2rem auto;
     width: 100%;
+    position: relative;
+    z-index: 10;
 }
 
 .concept-card,
@@ -115,7 +122,7 @@ p {
 
 .project-image {
     width: 100%;
-    height: auto;
+    height: 200px;
     background-size: cover;
     background-position: center;
     border-radius: 10px;
@@ -153,23 +160,56 @@ p {
     backdrop-filter: blur(10px);
 }
 
-@media (max-width: 768px) {
-    section {
-        padding: 1rem;
-    }
-    .concepts-grid,
-    .projects-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
+/* DECORATIVE SIDE IMAGES */
+.image-container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 200px;
+    height: 280px;
+    z-index: 1;
+    opacity: 0.12;
+    pointer-events: none;
 }
-.hero-image img {
+
+/* Left positioning for first section */
+#intro .image-container.left {
+    left: 30px;
+}
+
+/* Right positioning for concepts section */
+#concepts .image-container.right {
+    right: 30px;
+}
+
+/* Left positioning for projects section (if you add one) */
+#projects .image-container.left {
+    left: 30px;
+}
+
+/* Right positioning for thank you section (if you add one) */
+#thankyou .image-container.right {
+    right: 30px;
+}
+
+.image-container img {
     width: 100%;
-    height: auto;
-    max-width: 600px;
-    border-radius: 15px;
+    height: 100%;
     object-fit: cover;
+    border-radius: 15px;
+    filter: blur(0.5px);
 }
+
+/* Content wrapper for proper layering */
+.content {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+    position: relative;
+}
+
+/* Animations */
 .wave-text span {
     display: inline-block;
     animation: wave 2s ease-in-out infinite;
@@ -191,8 +231,8 @@ p {
 .typewriter-animation {
     animation: 
         typewriter 5s steps(50) 1s 1 normal both, 
-        blinkingCursor 500ms steps(50) 6s normal, /* Stop blinking after 6s */
-        hideCursor 0s 6s forwards; /* Hide cursor after 6s */
+        blinkingCursor 500ms steps(50) 6s normal,
+        hideCursor 0s 6s forwards;
 }
 
 @keyframes typewriter {
@@ -208,6 +248,7 @@ p {
 @keyframes hideCursor {
     to { border-right-color: transparent; }
 }
+
 @keyframes wave {
     0%, 100% {
         transform: translateY(0);
@@ -216,111 +257,50 @@ p {
         transform: translateY(-20px);
     }
 }
-/* Base page styling */
-.page {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Side image container base styles */
-.image-container {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 250px;
-    height: 350px;
-    z-index: 1;
-    opacity: 0.08; /* Very subtle so it doesn't interfere */
-    pointer-events: none; /* Prevents interaction issues */
-}
-
-/* Left side positioning */
-.image-container.left {
-    left: 20px; /* Position on left side */
-}
-
-/* Right side positioning */
-.image-container.right {
-    right: 20px; /* Position on right side */
-}
-
-/* For pages that should have right images, target them specifically */
-.page:nth-child(even) .image-container.left {
-    left: auto;
-    right: 20px; /* Move to right for even pages */
-}
-
-/* Image styling within container */
-.image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 15px;
-    filter: blur(1px); /* Subtle blur to make it more background-like */
-}
-
-/* Main content area */
-.content {
-    max-width: 800px;
-    width: 100%;
-    text-align: center;
-    z-index: 10;
-    position: relative;
-    background: rgba(255, 255, 255, 0.95); /* Slight background for readability */
-    padding: 2rem;
-    border-radius: 15px;
-    margin: 0 auto;
-}
 
 /* Responsive design */
 @media (max-width: 768px) {
-    .image-container {
-        display: none; /* Hide decorative images on mobile */
-    }
-    
-    .content {
-        background: rgba(255, 255, 255, 1);
-        margin: 0 1rem;
-    }
-    
-    .page {
+    section {
         padding: 1rem;
+    }
+    .concepts-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .image-container {
+        display: none;
     }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
     .image-container {
-        width: 200px;
-        height: 300px;
+        width: 150px;
+        height: 210px;
+        opacity: 0.08;
     }
     
-    .image-container.left {
-        left: -30px;
+    #intro .image-container.left {
+        left: 15px;
     }
     
-    .image-container.right {
-        right: -30px;
+    #concepts .image-container.right {
+        right: 15px;
     }
 }
 
-/* For larger screens, make images more visible */
 @media (min-width: 1400px) {
     .image-container {
         opacity: 0.15;
-        width: 350px;
-        height: 450px;
+        width: 250px;
+        height: 350px;
     }
     
-    .image-container.left {
-        left: 0;
+    #intro .image-container.left {
+        left: 50px;
     }
     
-    .image-container.right {
-        right: 0;
+    #concepts .image-container.right {
+        right: 50px;
     }
 }
