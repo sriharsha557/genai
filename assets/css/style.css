@@ -84,7 +84,20 @@ p {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,0.3);
 }
+.presenters {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2em;
+}
 
+.presenters p {
+    margin: 5px 0;
+}
+
+.presenters p:first-child {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
 .concepts-grid,
 .projects-grid {
     display: grid;
