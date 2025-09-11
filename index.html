@@ -1,57 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Learning Journey</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generative AI: Key Learnings & Streamlit Projects</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-
-  <div class="scroll-container">
-    <section class="section" id="intro">
-      <h1>Welcome to My Learning Journey</h1>
-      <p>Discover the key concepts and projects I've worked on.</p>
-    </section>
-
-    <section class="section" id="learnings">
-      <h2>Key Learnings</h2>
-      <ul>
-        <li>Data visualization techniques</li>
-        <li>Building interactive web apps with Streamlit</li>
-        <li>Working with Python and open-source libraries</li>
-      </ul>
-    </section>
-
-    <section class="section" id="concepts">
-      <h2>Concepts Overview</h2>
-      <p>Exploring high-level topics like data analysis, UI design, deployment strategies, and automation.</p>
-    </section>
-
-    <section class="section" id="projects">
-      <h2>Projects</h2>
-      <div class="projects-container">
-        <div class="project-card">
-          <img src="assets/images/project1.png" alt="Project 1">
-          <h3>Project One</h3>
-          <p>A dashboard built using Streamlit to visualize real-time data insights.</p>
-          <a href="https://project-one-link.com" target="_blank">View Project</a>
+    <section id="intro" data-aos="fade-up">
+        <h1>Generative AI: Key Learnings</h1>
+        <p>Discover high-level insights into generative AI concepts and explore my portfolio of Streamlit projects demonstrating practical applications.</p>
+        <div class="hero-image">
+            Add hero image: assets/images/hero-genai.jpg
         </div>
-        <div class="project-card">
-          <img src="assets/images/project2.png" alt="Project 2">
-          <h3>Project Two</h3>
-          <p>An interactive tool for analyzing customer feedback and trends.</p>
-          <a href="https://project-two-link.com" target="_blank">View Project</a>
+    </section>
+
+    <section id="concepts" data-aos="fade-up">
+        <h2>Core Concepts</h2>
+        <p>High-level overview of foundational generative AI principles, adapted from key learnings.</p>
+        <div class="concepts-grid">
+            <div class="concept-card" data-aos="fade-up" data-aos-delay="100">
+                <h3>Transformers & Attention</h3>
+                <p>Neural architectures that power modern language models by focusing on relevant parts of input data for coherent generation.</p>
+                <!-- Edit: Add icon or image from assets/images/transformers.jpg -->
+            </div>
+            <div class="concept-card" data-aos="fade-up" data-aos-delay="200">
+                <h3>Generative Adversarial Networks (GANs)</h3>
+                <p>Two neural networks competing to produce realistic outputs, revolutionizing image and content synthesis.</p>
+                <!-- Edit: Add icon or image from assets/images/gans.jpg -->
+            </div>
+            <div class="concept-card" data-aos="fade-up" data-aos-delay="300">
+                <h3>Diffusion Models</h3>
+                <p>Iterative denoising processes that generate high-quality images from noise, as seen in tools like DALL-E.</p>
+                <!-- Edit: Add icon or image from assets/images/diffusion.jpg -->
+            </div>
+            <div class="concept-card" data-aos="fade-up" data-aos-delay="400">
+                <h3>Ethical AI & Applications</h3>
+                <p>Balancing innovation with responsibility across industries like healthcare, education, and creative fields.</p>
+                <!-- Edit: Add icon or image from assets/images/ethics.jpg -->
+            </div>
         </div>
-      </div>
     </section>
 
-    <section class="section" id="thankyou">
-      <h2>Thank You!</h2>
-      <p>I appreciate you taking the time to explore my projects and learnings. Stay connected!</p>
+    <section id="projects" data-aos="fade-up">
+        <h2>Streamlit Projects</h2>
+        <p>Interactive applications built with Streamlit showcasing generative AI integrations. Edit descriptions and links below.</p>
+        <div class="projects-grid">
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="project-image" style="background-image: url('assets/images/project1.jpg');"></div>
+                <h3>AI Image Generator</h3>
+                <p>A Streamlit app for generating custom images using diffusion models. Upload prompts and view results in real-time.</p>
+                <a href="https://your-streamlit-app1.streamlit.app" class="project-link" target="_blank">Live App</a>
+            </div>
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="project-image" style="background-image: url('assets/images/project2.jpg');"></div>
+                <h3>Text-to-Code Assistant</h3>
+                <p>Generative tool that converts natural language descriptions into Python code snippets via LLMs.</p>
+                <a href="https://your-streamlit-app2.streamlit.app" class="project-link" target="_blank">Live App</a>
+            </div>
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
+                <div class="project-image" style="background-image: url('assets/images/project3.jpg');"></div>
+                <h3>Chatbot with GenAI</h3>
+                <p>Conversational AI interface built in Streamlit, powered by fine-tuned models for domain-specific queries.</p>
+                <a href="https://your-streamlit-app3.streamlit.app" class="project-link" target="_blank">Live App</a>
+            </div>
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="400">
+                <div class="project-image" style="background-image: url('assets/images/project4.jpg');"></div>
+                <h3>Data Visualizer Pro</h3>
+                <p>Streamlit dashboard generating insights and visualizations from datasets using AI-driven analysis.</p>
+                <a href="https://your-streamlit-app4.streamlit.app" class="project-link" target="_blank">Live App</a>
+            </div>
+        </div>
     </section>
-  </div>
 
-  <script src="assets/js/script.js"></script>
+    <section id="thankyou" data-aos="fade-up">
+        <h1>Thank You!</h1>
+        <p>For exploring my work in generative AI and Streamlit. Feel free to reach out for collaborations or questions.</p>
+        <div class="thankyou-image">
+            Add closing image: assets/images/thankyou.jpg
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
