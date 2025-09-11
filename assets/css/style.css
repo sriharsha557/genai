@@ -216,42 +216,111 @@ p {
         transform: translateY(-20px);
     }
 }
+/* Base page styling */
 .page {
-  display: flex;
-  align-items: center;
-  min-height: 100vh;
-  padding: 40px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
 }
 
+/* Side image container base styles */
 .image-container {
-  width: 40%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 250px;
+    height: 350px;
+    z-index: 1;
+    opacity: 0.08; /* Very subtle so it doesn't interfere */
+    pointer-events: none; /* Prevents interaction issues */
 }
 
-.image-container img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  opacity: 0.7;
-}
-
-.content {
-  width: 60%;
-  padding: 20px;
-}
-
+/* Left side positioning */
 .image-container.left {
-  order: 0; /* Image first */
+    left: 20px; /* Position on left side */
 }
 
+/* Right side positioning */
 .image-container.right {
-  order: 1; /* Image last */
+    right: 20px; /* Position on right side */
 }
 
-/* Optional: alternate background for pages */
-.page:nth-child(odd) {
-  background-color: #f9f9f9;
+/* For pages that should have right images, target them specifically */
+.page:nth-child(even) .image-container.left {
+    left: auto;
+    right: 20px; /* Move to right for even pages */
 }
 
-.page:nth-child(even) {
-  background-color: #ffffff;
+/* Image styling within container */
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    filter: blur(1px); /* Subtle blur to make it more background-like */
+}
+
+/* Main content area */
+.content {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+    position: relative;
+    background: rgba(255, 255, 255, 0.95); /* Slight background for readability */
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 0 auto;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .image-container {
+        display: none; /* Hide decorative images on mobile */
+    }
+    
+    .content {
+        background: rgba(255, 255, 255, 1);
+        margin: 0 1rem;
+    }
+    
+    .page {
+        padding: 1rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .image-container {
+        width: 200px;
+        height: 300px;
+    }
+    
+    .image-container.left {
+        left: -30px;
+    }
+    
+    .image-container.right {
+        right: -30px;
+    }
+}
+
+/* For larger screens, make images more visible */
+@media (min-width: 1400px) {
+    .image-container {
+        opacity: 0.15;
+        width: 350px;
+        height: 450px;
+    }
+    
+    .image-container.left {
+        left: 0;
+    }
+    
+    .image-container.right {
+        right: 0;
+    }
 }
