@@ -295,13 +295,13 @@ p {
 }
 
 .image-container.left {
-    left: clamp(5px, 2vw, 50px);
+    left: clamp(5px, 2vw, 5px);
     width: clamp(200px, 25vw, 400px);
     height: auto;
 }
 
 .image-container.right {
-    right: clamp(5px, 2vw, 50px);
+    right: clamp(5px, 2vw, 5px);
     width: clamp(200px, 25vw, 400px);
     height: auto;
 }
