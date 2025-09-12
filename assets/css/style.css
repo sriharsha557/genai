@@ -289,3 +289,73 @@ p {
         display: none;
     }
 }
+
+/* Navigation styles */
+#navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: #468FAF;
+    padding: 0.5rem 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+#navbar li {
+    display: inline;
+}
+
+#navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+#navbar a:hover {
+    color: #A9D6E5;
+}
+
+/* Improve contrast */
+body {
+    color: #222;
+}
+
+p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 1rem auto;
+}
+
+/* Button and link styling */
+.project-link {
+    background: linear-gradient(135deg, #468FAF, #89C2D9);
+}
+
+/* Accessibility improvements */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Additional spacing */
+section {
+    padding: 3rem 1rem;
+}
+
+/* Responsive navbar */
+@media (max-width: 768px) {
+    #navbar ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
