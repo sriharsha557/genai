@@ -60,3 +60,18 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(typewriterElement);
     }
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const typewriter = document.getElementById('typewriter-title');
+    const text = "Thank You!";
+    let index = 0;
+
+    function type() {
+        if (index < text.length) {
+            typewriter.textContent += text.charAt(index);
+            index++;
+            setTimeout(type, 150);
+        }
+    }
+
+    type();
+});
