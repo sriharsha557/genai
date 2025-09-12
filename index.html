@@ -1,37 +1,48 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Generative AI: Key Learnings & Streamlit Projects</title>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-    <section id="welcome" class="page" data-aos="fade-up">
+    <nav id="navbar">
+        <ul>
+            <li><a href="#welcome">Welcome</a></li>
+            <li><a href="#intro">Intro</a></li>
+            <li><a href="#concepts">Concepts</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#thankyou">Thank You</a></li>
+        </ul>
+    </nav>
+
+    <section id="welcome" class="page" data-aos="fade-up" role="region" aria-labelledby="welcome-heading">
         <div class="image-container left">
-            <img src="assets/images/picture32.png" alt="Image 23"/>
+            <img src="assets/images/picture32.png" alt="Creative AI representation"/>
         </div>
         <div class="image-container right">
-            <img src="assets/images/picture23.png" alt="Image 32"/>
+            <img src="assets/images/picture23.png" alt="Innovative design concept"/>
         </div>
         <div class="content">
-            <h1>Welcome to a New Way of Presenting</h1>
+            <h1 id="welcome-heading">Welcome to a New Way of Presenting</h1>
             <p>This is not your typical presentation with static slides and bullet points. In a world where AI tools can help you create, design, and innovate, why stick to old PowerPoint templates?</p>
             <p>Here, you’ll experience a new way of sharing ideas! An interactive webpage where imagination is the only limit.</p>
             <p><em>Note: All the text, images, and designs you see here are generated using AI tools.</em></p>
         </div>
     </section>
 
-    <section id="intro" class="page" data-aos="fade-up">
+    <section id="intro" class="page" data-aos="fade-up" role="region" aria-labelledby="intro-heading">
         <div class="image-container left">
-            <img src="assets/images/picture2.png" alt="Image 1"/>
+            <img src="assets/images/picture2.png" alt="AI visualization"/>
         </div>
         <div class="content">
-            <h1 id="animated-title">Key Takeaways from DHS 2025</h1>
+            <h1 id="intro-heading">Key Takeaways from DHS 2025</h1>
             <p>High-level insights into generative AI concepts and exploring use cases or projects demonstrating practical applications.</p>
             <div class="hero-image">
-                <img src="assets/images/DHS.jpg" alt="Generative AI"/>
+                <img src="assets/images/DHS.jpg" alt="Generative AI insights"/>
             </div>
             <div class="presenters">
                 <p>Presented by</p>
@@ -40,71 +51,70 @@
             </div>
         </div>
     </section>
-    <section id="concepts" class="page" data-aos="fade-up">
-        <h2>Core Concepts</h2>
+
+    <section id="concepts" class="page" data-aos="fade-up" role="region" aria-labelledby="concepts-heading">
+        <h2 id="concepts-heading">Core Concepts</h2>
         <p>High-level overview of foundational generative AI principles, adapted from key learnings.</p>
         <div class="concepts-grid">
             <div class="concept-card" data-aos="fade-up" data-aos-delay="100">
                 <h3>Transformers & Attention</h3>
                 <p>Neural architectures that power modern language models by focusing on relevant parts of input data for coherent generation.</p>
-                </div>
+            </div>
             <div class="concept-card" data-aos="fade-up" data-aos-delay="200">
                 <h3>Generative Adversarial Networks (GANs)</h3>
                 <p>Two neural networks competing to produce realistic outputs, revolutionizing image and content synthesis.</p>
-                </div>
+            </div>
             <div class="concept-card" data-aos="fade-up" data-aos-delay="300">
                 <h3>Diffusion Models</h3>
                 <p>Iterative denoising processes that generate high-quality images from noise, as seen in tools like DALL-E.</p>
-                </div>
+            </div>
             <div class="concept-card" data-aos="fade-up" data-aos-delay="400">
                 <h3>Ethical AI & Applications</h3>
                 <p>Balancing innovation with responsibility across industries like healthcare, education, and creative fields.</p>
-                </div>
+            </div>
             <div class="image-container right">
-                <img src="assets/images/picture4.png" alt="Image 2">
-              </div>
+                <img src="assets/images/picture4.png" alt="AI development illustration"/>
+            </div>
         </div>
     </section>
-    
-    <section id="projects" data-aos="fade-up">
-        <h2>Streamlit Projects</h2>
+
+    <section id="projects" class="page" data-aos="fade-up" role="region" aria-labelledby="projects-heading">
+        <h2 id="projects-heading">Streamlit Projects</h2>
         <p>Interactive applications built with Streamlit showcasing generative AI integrations. Edit descriptions and links below.</p>
         <div class="projects-grid">
             <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
                 <div class="project-image" style="background-image: url('assets/images/project1.jpg');"></div>
                 <h3>AI Image Generator</h3>
                 <p>A Streamlit app for generating custom images using diffusion models. Upload prompts and view results in real-time.</p>
-                <a href="https://your-streamlit-app1.streamlit.app" class="project-link" target="_blank">Live App</a>
+                <a href="https://your-streamlit-app1.streamlit.app" class="project-link" target="_blank" rel="noopener">Live App</a>
             </div>
             <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
                 <div class="project-image" style="background-image: url('assets/images/project2.jpg');"></div>
                 <h3>Text-to-Code Assistant</h3>
                 <p>Generative tool that converts natural language descriptions into Python code snippets via LLMs.</p>
-                <a href="https://your-streamlit-app2.streamlit.app" class="project-link" target="_blank">Live App</a>
+                <a href="https://your-streamlit-app2.streamlit.app" class="project-link" target="_blank" rel="noopener">Live App</a>
             </div>
             <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
                 <div class="project-image" style="background-image: url('assets/images/project3.jpg');"></div>
                 <h3>Chatbot with GenAI</h3>
                 <p>Conversational AI interface built in Streamlit, powered by fine-tuned models for domain-specific queries.</p>
-                <a href="https://your-streamlit-app3.streamlit.app" class="project-link" target="_blank">Live App</a>
+                <a href="https://your-streamlit-app3.streamlit.app" class="project-link" target="_blank" rel="noopener">Live App</a>
             </div>
             <div class="project-card" data-aos="zoom-in" data-aos-delay="400">
                 <div class="project-image" style="background-image: url('assets/images/project4.jpg');"></div>
                 <h3>Data Visualizer Pro</h3>
                 <p>Streamlit dashboard generating insights and visualizations from datasets using AI-driven analysis.</p>
-                <a href="https://your-streamlit-app4.streamlit.app" class="project-link" target="_blank">Live App</a>
+                <a href="https://your-streamlit-app4.streamlit.app" class="project-link" target="_blank" rel="noopener">Live App</a>
             </div>
         </div>
     </section>
 
-    <section id="thankyou" data-aos="fade-up">
+    <section id="thankyou" class="page" data-aos="fade-up" role="region" aria-labelledby="thankyou-heading">
         <h1 id="typewriter-title" class="typewriter-cursor typewriter-animation">Thank You!</h1>
-        <p>Thank you Colruyt Group for giving us the opportunity to attend the Gen AI Summit.</p>
+        <p id="thankyou-heading">Thank you Colruyt Group for giving us the opportunity to attend the Gen AI Summit.</p>
         <p>It has been an incredible experience to learn, create, and explore new ideas that will help us grow and innovate together.</p>
         <p><strong>"Happy VIBE coding — but always with your brain firmly in the loop."</strong></p>
-        
     </section>
-
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="assets/js/script.js"></script>
