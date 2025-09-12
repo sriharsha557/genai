@@ -5,7 +5,7 @@ AOS.init({
     offset: 100
 });
 
-// Smooth scroll snapping fix: Ensure sections snap properly without blanks
+// Smooth scroll snapping fix
 const sections = document.querySelectorAll('section');
 let currentSection = 0;
 
@@ -20,22 +20,23 @@ window.addEventListener('scroll', () => {
     });
 });
 
+// Wave animation for title
 function addWaveAnimation() {
     const title = document.getElementById('animated-title');
     const text = title.textContent;
     title.innerHTML = '';
     title.classList.add('wave-text');
     
-    // Split text into characters and wrap each in a span
     text.split('').forEach((char, index) => {
         const span = document.createElement('span');
-        span.textContent = char === ' ' ? '\u00A0' : char; // Use non-breaking space for spaces
-        span.style.animationDelay = `${index * 0.1}s`; // Stagger animation
+        span.textContent = char === ' ' ? '\u00A0' : char;
+        span.style.animationDelay = `${index * 0.1}s`;
         title.appendChild(span);
     });
 }
-// Apply the animation when the page loads
+
 document.addEventListener('DOMContentLoaded', addWaveAnimation);
+
 // Keyboard navigation
 document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowDown' && currentSection < sections.length - 1) {
@@ -44,10 +45,11 @@ document.addEventListener('keydown', (e) => {
         sections[currentSection - 1].scrollIntoView({ behavior: 'smooth' });
     }
 });
+
+// IntersectionObserver for typewriter animation
 document.addEventListener('DOMContentLoaded', function() {
     const typewriterElement = document.getElementById('typewriter-title');
     
-    // Add animation class when element is in view
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -59,19 +61,4 @@ document.addEventListener('DOMContentLoaded', function() {
     if (typewriterElement) {
         observer.observe(typewriterElement);
     }
-});
-document.addEventListener('DOMContentLoaded', () => {
-    const typewriter = document.getElementById('typewriter-title');
-    const text = "Thank You!";
-    let index = 0;
-
-    function type() {
-        if (index < text.length) {
-            typewriter.textContent += text.charAt(index);
-            index++;
-            setTimeout(type, 150);
-        }
-    }
-
-    type();
 });
