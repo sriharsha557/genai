@@ -79,9 +79,7 @@ section {
 
 /* Welcome Section with Enhanced Animations */
 #welcome {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #89C2D9 50%, #61A5C2 75%, #468FAF 100%);
-    background-size: 400% 400%;
-    animation: gradientShift 8s ease infinite;
+    background: #2E4F7A;
     text-align: center;
     padding: 80px 20px;
     position: relative;
@@ -92,11 +90,6 @@ section {
     justify-content: center;
 }
 
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
 
 /* Floating Background Elements */
 .floating-elements {
@@ -446,7 +439,7 @@ section {
 }
 #buzzwords {
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #4facfe 100%);
-    color: #333;
+    color: white;
     text-align: center;
 }
 #agent {
@@ -982,17 +975,15 @@ img {
 * {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-}
 
 .concept-card h3 {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: white;
+    color: #333;
 }
 .concept-card p {
-    color: white;
+    color: #333;
 }
 /* Enhanced Projects Section */
 #projects {
