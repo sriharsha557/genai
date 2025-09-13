@@ -989,9 +989,11 @@ img {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: #333;
+    color: white;
 }
-
+.concept-card p {
+    color: white;
+}
 /* Enhanced Projects Section */
 #projects {
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #4facfe 100%);
@@ -1205,7 +1207,13 @@ img {
     background: linear-gradient(to bottom, #667eea, #764ba2);
     border-radius: 2px;
 }
+#buzzwords .explanation-section h3 {
+    color: white;
+}
 
+#buzzwords .explanation-section p {
+    color: white;
+}
 .explanation-section p {
     font-size: 1.1rem;
     line-height: 1.7;
