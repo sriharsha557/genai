@@ -444,7 +444,31 @@ section {
     color: #333;
     text-align: center;
 }
-
+#buzzwords {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #4facfe 100%);
+    color: #333;
+    text-align: center;
+}
+#agent {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #4facfe 100%);
+    color: #333;
+    text-align: center;
+}
+#basicagent {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #4facfe 100%);
+    color: #333;
+    text-align: center;
+}
+#crewai {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #4facfe 100%);
+    color: #333;
+    text-align: center;
+}
+#usecase {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #4facfe 100%);
+    color: #333;
+    text-align: center;
+}
 /* Typography */
 h1 {
     font-family: 'Poppins', sans-serif;
