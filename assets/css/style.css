@@ -203,20 +203,76 @@ p {
     margin-bottom: 1rem;
 }
 
+/* Fixed Projects Grid Styling */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    width: 100%;
+    padding: 0 1rem;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Fixed Project Image - This was the main issue */
 .project-image {
     width: 100%;
-    height: auto;
+    height: 200px; /* Fixed height instead of 'auto' */
     background-size: cover;
     background-position: center;
-    border-radius: 10px;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    background-color: #f0f0f0;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.02);
+}
+
+.project-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
     margin-bottom: 1rem;
-    background-color: #ddd;
+    color: #2c3e50;
+    letter-spacing: -0.01em;
+}
+
+.project-card p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #5a6c7d;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    max-width: none;
 }
 
 .project-link {
     display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background: linear-gradient(135deg, #468FAF, #89C2D9);
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     text-decoration: none;
     border-radius: 25px;
@@ -225,11 +281,80 @@ p {
     font-size: 0.95rem;
     transition: all 0.3s ease;
     letter-spacing: 0.01em;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
 
 .project-link:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(70, 143, 175, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* Projects Section Header */
+#projects {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #4facfe 100%);
+    color: white;
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+#projects h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#projects > p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 0.5rem;
+    }
+    
+    .project-card {
+        padding: 1.5rem;
+    }
+    
+    .project-image {
+        height: 180px;
+    }
+    
+    .project-card h3 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #projects {
+        padding: 3rem 1rem;
+    }
+    
+    .project-card {
+        padding: 1.25rem;
+    }
+    
+    .project-image {
+        height: 160px;
+    }
+    
+    .project-link {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
 }
 
 #thankyou p {
