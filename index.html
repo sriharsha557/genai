@@ -1,14 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generative AI: Key Learnings & Streamlit Projects</title>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Navigation -->
     <nav id="navbar">
         <ul>
             <li><a href="#welcome">Welcome</a></li>
@@ -19,15 +19,17 @@
         </ul>
     </nav>
 
-    <section id="welcome" class="page" data-aos="fade-up" role="region" aria-labelledby="welcome-heading">
+    <!-- Welcome Section -->
+    <section id="welcome" class="page">
+        <!-- Side Images -->
         <div class="image-container left">
-            <img src="assets/images/picture32.png" alt="Creative AI representation"/>
+            <img src="assets/images/picture32.png" alt="Creative AI representation">
         </div>
         <div class="image-container right">
-            <img src="assets/images/picture23.png" alt="Innovative design concept"/>
+            <img src="assets/images/picture23.png" alt="Innovative design concept">
         </div>
     
-        <!-- Animated background elements -->
+        <!-- Animated Background Elements -->
         <div class="floating-elements">
             <div class="floating-circle"></div>
             <div class="floating-circle"></div>
@@ -38,7 +40,7 @@
     
         <div class="content">
             <div class="welcome-header">
-                <h1 id="welcome-heading" class="typewriter-text">A New Way of Presenting</h1>
+                <h1 id="welcome-heading" class="typewriter-text">Welcome to a New Way of Presenting</h1>
                 <div class="header-underline"></div>
             </div>
         
@@ -64,58 +66,64 @@
         </div>
     </section>
 
-    <section id="intro" class="page" data-aos="fade-up" role="region" aria-labelledby="intro-heading">
+    <!-- Introduction Section -->
+    <section id="intro" class="page">
         <div class="image-container left">
-            <img src="assets/images/picture2.png" alt="AI visualization"/>
+            <img src="assets/images/picture2.png" alt="AI visualization">
         </div>
         <div class="content">
             <h1 id="intro-heading">Key Takeaways from DHS 2025</h1>
             <p>High-level insights into generative AI concepts and exploring use cases or projects demonstrating practical applications.</p>
             <div class="hero-image">
-                <img src="assets/images/DHS.jpg" alt="Generative AI insights"/>
+                <img src="assets/images/DHS.jpg" alt="Generative AI insights">
             </div>
             <div class="presenters">
                 <p class="presented-by">Presented by</p>
                 <div class="presenter-images">
-                    <img src="assets/images/vinod.png" alt="Vinod"/>
-                    <img src="assets/images/harsha.png" alt="Harsha"/>
+                    <img src="assets/images/vinod.png" alt="Vinod">
+                    <img src="assets/images/harsha.png" alt="Harsha">
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="concepts" class="page" data-aos="fade-up" role="region" aria-labelledby="concepts-heading">
+    <!-- Concepts Section -->
+    <section id="concepts" class="page">
         <h2 id="concepts-heading">Core Concepts</h2>
         <p>High-level overview of foundational generative AI principles, adapted from key learnings.</p>
         <div class="concepts-grid">
-            <div class="concept-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="concept-card">
                 <h3>Transformers & Attention</h3>
                 <p>Neural architectures that power modern language models by focusing on relevant parts of input data for coherent generation.</p>
             </div>
-            <div class="concept-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="concept-card">
                 <h3>Generative Adversarial Networks (GANs)</h3>
                 <p>Two neural networks competing to produce realistic outputs, revolutionizing image and content synthesis.</p>
             </div>
-            <div class="concept-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="concept-card">
                 <h3>Diffusion Models</h3>
                 <p>Iterative denoising processes that generate high-quality images from noise, as seen in tools like DALL-E.</p>
             </div>
-            <div class="concept-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="concept-card">
                 <h3>Ethical AI & Applications</h3>
                 <p>Balancing innovation with responsibility across industries like healthcare, education, and creative fields.</p>
             </div>
-            <div class="image-container right">
-                <img src="assets/images/picture4.png" alt="AI development illustration"/>
-            </div>
+        </div>
+        <div class="image-container right">
+            <img src="assets/images/picture4.png" alt="AI development illustration">
         </div>
     </section>
 
-    <section id="projects" class="page" data-aos="fade-up" role="region" aria-labelledby="projects-heading">
+    <!-- Projects Section -->
+    <section id="projects" class="page">
         <h2 id="projects-heading">Streamlit Projects</h2>
         <p>Interactive applications built with Streamlit showcasing generative AI integrations.</p>
     
         <div class="projects-showcase">
-            <div class="project-preview-card" data-aos="zoom-in" data-aos-delay="200">
+            <div class="project-preview-card">
+                <div class="card-header">
+                    <div class="project-icon">🚀</div>
+                </div>
                 <div class="project-preview-content">
                     <h3>Explore My Applications</h3>
                     <p>Discover a collection of AI-powered Streamlit applications including document analysis, personal knowledge hubs, summarization tools, and conversational AI assistants.</p>
@@ -143,22 +151,27 @@
                         <span class="link-text">View All Projects</span>
                         <span class="link-arrow">→</span>
                     </a>
+
+                    <div class="project-count">
+                        <div class="count-number">15+</div>
+                        <div class="count-text">Projects Available</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="thankyou" class="page" data-aos="fade-up" role="region" aria-labelledby="thankyou-heading">
-        <h1 id="typewriter-title" data-text="Thank You!"></h1>
+    <!-- Thank You Section -->
+    <section id="thankyou" class="page">
+        <h1 id="typewriter-title" class="typewriter-animation">Thank You!</h1>
         <div class="hero-image">
-                <img src="assets/images/thanku.png" alt="THANK"/>
-            </div>
-        <p id="thankyou-heading">Thank you Colruyt Group for giving us the opportunity to attend the Gen AI Summit.</p>
+            <img src="assets/images/thanku.png" alt="Thank You">
+        </div>
+        <p>Thank you Colruyt Group for giving us the opportunity to attend the Gen AI Summit.</p>
         <p>It has been an incredible experience to learn, create, and explore new ideas that will help us grow and innovate together.</p>
-        <p><strong>"Happy VIBE coding — but always with your brain firmly in the loop."</strong></p>
+        <p><strong>"Happy VIBE coding – but always with your brain firmly in the loop."</strong></p>
     </section>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="assets/js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
