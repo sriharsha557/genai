@@ -1556,3 +1556,37 @@ html {
     transform: scale(1.02);
     transition: all 0.3s ease;
 }
+
+/* Dark Theme Override */
+body {
+    background-color: #111111 !important;
+    color: white !important;
+}
+
+/* All sections get dark background */
+section {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%) !important;
+    color: white !important;
+}
+
+/* Ensure all text elements are white */
+h1, h2, h3, h4, h5, h6, p, li, span {
+    color: white !important;
+}
+
+/* Cards and containers */
+.concept-card, .concept-explanation, .project-preview-card {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+}
+
+/* Navigation */
+#navbar {
+    background: rgba(0, 0, 0, 0.9) !important;
+}
+
+/* Special elements */
+.note-container {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+}
