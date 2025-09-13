@@ -59,7 +59,7 @@ body {
     border-radius: 20px;
 }
 
-#navbar a:hover {
+#navbar a:hover, #navbar a.active {
     background: rgba(255, 255, 255, 0.2);
     color: #A9D6E5;
     transform: translateY(-2px);
@@ -345,7 +345,7 @@ section {
     color: rgba(255, 255, 255, 0.9);
 }
 
-/* Scroll Indicator */
+/* Scroll Indicator - Fixed centering */
 .scroll-indicator {
     position: absolute;
     bottom: 2rem;
@@ -356,6 +356,8 @@ section {
     align-items: center;
     gap: 0.5rem;
     color: rgba(255, 255, 255, 0.8);
+    width: auto;
+    text-align: center;
 }
 
 .scroll-text {
@@ -364,6 +366,8 @@ section {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
+    margin: 0;
+    white-space: nowrap;
 }
 
 .scroll-arrow {
@@ -377,7 +381,7 @@ section {
     60% { transform: translateY(-5px); }
 }
 
-/* Side Images Enhancement */
+/* Side Images Enhancement - No background for PNGs */
 .image-container {
     position: absolute;
     top: 50%;
@@ -416,6 +420,7 @@ section {
     object-fit: contain;
     filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
     transition: filter 0.3s ease;
+    background: transparent;
 }
 
 .image-container:hover img {
@@ -470,20 +475,17 @@ p {
     line-height: 1.7;
 }
 
-/* Hero Image */
+/* Hero Image - No background for PNGs */
 .hero-image {
     width: 100%;
     max-width: 600px;
     height: auto;
-    background: rgba(255,255,255,0.2);
     border-radius: 15px;
     margin: 2rem auto;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.1rem;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.3);
 }
 
 .hero-image img {
@@ -492,9 +494,10 @@ p {
     max-width: 600px;
     border-radius: 15px;
     object-fit: cover;
+    background: transparent;
 }
 
-/* Presenters Section */
+/* Presenters Section - No background for PNGs */
 .presenters {
     width: 100%;
     margin: 2rem auto;
@@ -523,6 +526,7 @@ p {
     height: auto;
     border-radius: 15px;
     transition: transform 0.3s ease;
+    background: transparent;
 }
 
 .presenter-images img:hover {
@@ -551,83 +555,6 @@ p {
 }
 
 .concept-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-}
-
-.concept-card h3 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: #333;
-}
-
-/* Enhanced Projects Section */
-#projects {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #4facfe 100%);
-    color: white;
-    text-align: center;
-    padding: 5rem 2rem;
-    position: relative;
-    overflow: hidden;
-}
-
-#projects::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.03"><circle cx="30" cy="30" r="2"/></g></svg>') repeat;
-    animation: floatPattern 20s ease-in-out infinite;
-    pointer-events: none;
-}
-
-@keyframes floatPattern {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(180deg); }
-}
-
-.projects-showcase {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 3rem auto;
-    position: relative;
-    z-index: 2;
-}
-
-.project-preview-card {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
-    border-radius: 25px;
-    padding: 3rem;
-    max-width: 650px;
-    width: 100%;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    transition: all 0.4s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.project-preview-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.6s ease;
-}
-
-.project-preview-card:hover::before {
-    left: 100%;
-}
-
-.project-preview-card:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
 }
@@ -817,6 +744,70 @@ p {
     font-weight: 600;
 }
 
+/* JavaScript added animations */
+.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.animate-float {
+    animation-play-state: running;
+}
+
+.animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+}
+
+.animate-highlight {
+    transform: translateX(10px);
+    color: #667eea;
+}
+
+.animate-concept-card {
+    animation: cardPop 0.6s ease-out forwards;
+}
+
+.pulse-effect {
+    animation: pulseOnce 0.6s ease-out;
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(0);
+    animation: rippleAnimation 0.6s linear;
+    pointer-events: none;
+}
+
+.hover-active {
+    transform: translateY(-5px) scale(1.05);
+}
+
+.scrolled {
+    background: rgba(70, 143, 175, 0.98);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cardPop {
+    0% { opacity: 0; transform: scale(0.8) translateY(20px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes pulseOnce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes rippleAnimation {
+    to { transform: scale(4); opacity: 0; }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     #welcome {
@@ -947,3 +938,80 @@ img {
 * {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.concept-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+/* Enhanced Projects Section */
+#projects {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #4facfe 100%);
+    color: white;
+    text-align: center;
+    padding: 5rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+#projects::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.03"><circle cx="30" cy="30" r="2"/></g></svg>') repeat;
+    animation: floatPattern 20s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes floatPattern {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(180deg); }
+}
+
+.projects-showcase {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem auto;
+    position: relative;
+    z-index: 2;
+}
+
+.project-preview-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    padding: 3rem;
+    max-width: 650px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-preview-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.project-preview-card:hover::before {
+    left: 100%;
+}
+
+.project-preview-card:hover {
+    transform: translateY(-10px) scale(1.02);
