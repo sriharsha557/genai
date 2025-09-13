@@ -759,11 +759,11 @@ p {
     font-size: 1.1rem;
     max-width: 600px;
     margin: 20px auto;
-    color: #555;
+    color: white;
 }
 
 #thankyou strong {
-    color: #222;
+    color: white;
     font-style: italic;
     font-weight: 600;
 }
