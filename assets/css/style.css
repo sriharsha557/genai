@@ -429,18 +429,18 @@ section {
 
 /* Other Section Styles */
 #intro {
-    background: linear-gradient(90deg, #014F86 0%, #468FAF 50%, #89C2D9 100%);
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #4facfe 100%);
     color: white;
     text-align: center;
 }
 
 #concepts {
-    background: linear-gradient(135deg, #89C2D9 0%, #61A5C2 50%, #468FAF 100%);
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #4facfe 100%);
     text-align: center;
 }
 
 #thankyou {
-    background: linear-gradient(135deg, #468FAF 0%, #89C2D9 50%, #A9D6E5 100%);
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #4facfe 100%);
     color: #333;
     text-align: center;
 }
