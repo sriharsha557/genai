@@ -394,7 +394,7 @@ section {
 
 .image-container.left {
     left: clamp(5px, 2vw, 5px);
-    width: clamp(200px, 25vw, 350px);
+    width: clamp(250px, 25vw, 350px);
     animation: floatLeft 8s ease-in-out infinite;
 }
 
