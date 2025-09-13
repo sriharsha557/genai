@@ -1207,12 +1207,24 @@ img {
     background: linear-gradient(to bottom, #667eea, #764ba2);
     border-radius: 2px;
 }
-#buzzwords .explanation-section h3 {
+#buzzwords .concept-detail-container h1 {
     color: white;
 }
 
-#buzzwords .explanation-section p {
+#buzzwords .concept-subtitle {
     color: white;
+}
+
+#buzzwords .concept-explanation {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#buzzwords .explanation-section h3 {
+    color: white !important;
+}
+
+#buzzwords .explanation-section p {
+    color: white !important;
 }
 .explanation-section p {
     font-size: 1.1rem;
