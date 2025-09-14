@@ -1650,3 +1650,216 @@ h1, h2, h3, h4, h5, h6, p, li, span {
     background: rgba(255, 255, 255, 0.1) !important;
     color: white !important;
 }
+/* GenAI Introduction Section Styles */
+.genai-capabilities-grid, .genai-usecases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.genai-capability-card, .genai-usecase-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.genai-capability-card:hover, .genai-usecase-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.capability-icon, .usecase-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.usecase-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.genai-capability-card h4, .genai-usecase-card h4 {
+    color: white !important;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.genai-capability-card ul, .genai-usecase-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.genai-capability-card li, .genai-usecase-card li {
+    color: rgba(255, 255, 255, 0.9) !important;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.genai-capability-card li:last-child, .genai-usecase-card li:last-child {
+    border-bottom: none;
+}
+
+.genai-capability-card li:before, .genai-usecase-card li:before {
+    content: "•";
+    color: #667eea;
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+}
+
+/* Leverage Grid */
+.leverage-grid {
+    display: grid;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.leverage-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.leverage-item:hover {
+    transform: translateX(10px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.leverage-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #667eea;
+    font-family: 'Poppins', sans-serif;
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(102, 126, 234, 0.2);
+    border-radius: 50%;
+    border: 2px solid #667eea;
+}
+
+.leverage-content h4 {
+    color: white !important;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.leverage-content p {
+    color: rgba(255, 255, 255, 0.9) !important;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Demo Highlight Section */
+.demo-highlight {
+    background: rgba(102, 126, 234, 0.1) !important;
+    border-radius: 20px;
+    padding: 2rem;
+    border: 2px solid rgba(102, 126, 234, 0.3);
+    margin-top: 3rem;
+}
+
+.demo-points {
+    display: grid;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.demo-point {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.demo-point:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(5px);
+}
+
+.demo-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.demo-text {
+    color: rgba(255, 255, 255, 0.95) !important;
+    line-height: 1.5;
+}
+
+.demo-text strong {
+    color: white !important;
+    font-weight: 600;
+}
+
+.demo-conclusion {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+}
+
+.demo-conclusion p {
+    color: white !important;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .genai-usecases-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .genai-capabilities-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .leverage-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .leverage-number {
+        align-self: center;
+    }
+    
+    .demo-point {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+    }
+    
+    .demo-highlight {
+        padding: 1.5rem;
+        margin-top: 2rem;
+    }
+}
