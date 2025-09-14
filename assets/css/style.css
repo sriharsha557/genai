@@ -1555,7 +1555,68 @@ html {
     transform: scale(1.02);
     transition: all 0.3s ease;
 }
+/* Presentation Section Styles */
+.presentation-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
 
+.presentation-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.presentation-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+.presentation-note {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.presentation-note p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    font-style: italic;
+    margin: 0;
+}
+
+/* Mobile responsiveness for presentation */
+@media (max-width: 768px) {
+    .presentation-container {
+        padding: 1rem;
+    }
+    
+    .presentation-wrapper {
+        padding-bottom: 75%; /* Adjust for mobile viewing */
+    }
+    
+    .presentation-note {
+        padding: 0.75rem;
+    }
+    
+    .presentation-note p {
+        font-size: 0.9rem;
+    }
+}
 /* Dark Theme Override */
 body {
     background-color: #111111 !important;
