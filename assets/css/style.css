@@ -1878,7 +1878,7 @@ h1, h2, h3, h4, h5, h6, p, li, span {
     border-left: 3px solid #667eea;
     font-size: 0.95rem;
     line-height: 1.4;
-    color: #333;
+    color: white;
     transition: all 0.2s ease;
 }
 
