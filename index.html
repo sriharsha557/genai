@@ -13,14 +13,12 @@
         <ul>
             <li><a href="#welcome">Welcome</a></li>
             <li><a href="#intro">Intro</a></li>
-            <li><a href="#presentation">Presentation</a></li>
-            <li><a href="#buzzwords">Buzzwords</a></li>
-            <li><a href="#concepts">Concepts</a></li>
+            <li><a href="#genai-intro">Gen Ai</a></li>
             <li><a href="#agent">Agents</a></li>
             <li><a href="#basicagent">Basic Agent</a></li>
-            <li><a href="#crewai">Crew Ai</a></li>
-            <li><a href="#usecase">Usecase</a></li>
+            <li><a href="#presentation">Presentation</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#techstack">Tech Stack</a></li>
             <li><a href="#thankyou">Thank You</a></li>
         </ul>
     </nav>
@@ -92,81 +90,175 @@
         </div>
     </section>
 
-    <!-- Presentation Section -->
-    <section id="presentation" class="concept-detail-page">
+
+
+
+    <!-- GenAI Introduction Section -->
+    <section id="genai-intro" class="concept-detail-page">
         <div class="concept-detail-container">
             <div class="concept-header">
-                <h1 class="concept-title">My Presentation</h1>
-                <div class="concept-subtitle">Interactive Google Slides Presentation</div>
+                <h1 class="concept-title">Introduction to Generative AI</h1>
+                <div class="concept-subtitle">Transforming imagination into reality through artificial intelligence</div>
             </div>
         
-            <div class="presentation-container">
-                <div class="presentation-wrapper">
-                    <iframe 
-                        src="https://docs.google.com/presentation/d/1iGCYJApi7fWD5Pzq5C_zpM71c8SYNmO_/embed?start=false&loop=false&delayms=3000" 
-                        frameborder="0" 
-                        allowfullscreen="true" 
-                        mozallowfullscreen="true" 
-                        webkitallowfullscreen="true">
-                    </iframe>
-                </div>
-                <div class="presentation-note">
-                    <p>Use the navigation controls within the presentation to browse through the slides.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- buzzwords -->
-    <section id="buzzwords" class="concept-detail-page">
-        <div class="concept-detail-container">
-            <div class="concept-header">
-                <h1 class="concept-title">Buzzwords</h1>
-                <div class="concept-subtitle">The Foundation of Modern AI</div>
-            </div>
-            
-            <div class="buzz-word">
-                    <img src="assets/images/buzzwords.png" alt="Buzzword">
-            </div>
-            
             <div class="concept-explanation">
                 <div class="explanation-section">
-                    <h3>What are these buzzwords?</h3>
-                    <p>Generative AI is built around several buzzwords that highlight its capabilities and technologies. Terms like large language models (LLMs) refer to advanced AI systems trained on massive text data to generate human-like responses. </p>
+                    <h3>What is Generative AI?</h3>
+                    <p>Generative AI refers to artificial intelligence systems that can create new content - text, images, code, audio, video, and more - based on patterns learned from training data. Unlike traditional AI that analyzes or classifies existing data, GenAI produces original content that didn't exist before.</p>
                 </div>
-                               
+            
                 <div class="explanation-section">
-                    <h3>Real-World Impact</h3>
-                    <p>Multimodal AI is transforming areas like entertainment and education by combining text, visuals, and audio for immersive experiences.</p>
+                    <h3>Core Capabilities</h3>
+                    <div class="genai-capabilities-grid">
+                        <div class="genai-capability-card">
+                            <div class="capability-icon">🎨</div>
+                            <h4>Content Creation</h4>
+                            <ul>
+                                <li>Text generation (articles, stories, code, emails)</li>
+                                <li>Image synthesis and editing</li>
+                                <li>Video and animation creation</li>
+                                <li>Audio and music composition</li>
+                                <li>3D model generation</li>
+                            </ul>
+                        </div>
+                        <div class="genai-capability-card">
+                            <div class="capability-icon">⚡</div>
+                            <h4>Transformation & Enhancement</h4>
+                            <ul>
+                                <li>Style transfer and artistic rendering</li>
+                                <li>Language translation and localization</li>
+                                <li>Content summarization and expansion</li>
+                                <li>Data augmentation and synthetic dataset creation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="explanation-section">
+                    <h3>Key Use Cases Across Industries</h3>
+                    <div class="genai-usecases-grid">
+                        <div class="genai-usecase-card">
+                            <div class="usecase-header">
+                                <div class="usecase-icon">🎯</div>
+                                <h4>Creative & Marketing</h4>
+                            </div>
+                            <ul>
+                                <li>Advertising copy and campaign materials</li>
+                                <li>Social media content generation</li>
+                                <li>Brand identity and logo design</li>
+                                <li>Personalized marketing at scale</li>
+                            </ul>
+                        </div>
+                        <div class="genai-usecase-card">
+                            <div class="usecase-header">
+                                <div class="usecase-icon">💻</div>
+                                <h4>Software Development</h4>
+                            </div>
+                            <ul>
+                                <li>Code generation and debugging</li>
+                                <li>Documentation writing</li>
+                                <li>Test case creation</li>
+                                <li>API design and implementation</li>
+                            </ul>
+                        </div>
+                        <div class="genai-usecase-card">
+                            <div class="usecase-header">
+                                <div class="usecase-icon">🏢</div>
+                                <h4>Business Operations</h4>
+                            </div>
+                            <ul>
+                                <li>Report generation and data analysis</li>
+                                <li>Customer service chatbots</li>
+                                <li>Process automation and workflow optimization</li>
+                                <li>Training material creation</li>
+                            </ul>
+                        </div>
+                        <div class="genai-usecase-card">
+                            <div class="usecase-header">
+                                <div class="usecase-icon">🎓</div>
+                                <h4>Education & Research</h4>
+                            </div>
+                            <ul>
+                                <li>Personalized learning content</li>
+                                <li>Research paper assistance</li>
+                                <li>Interactive educational tools</li>
+                                <li>Curriculum development</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="explanation-section">
+                    <h3>How We Can Leverage GenAI</h3>
+                    <div class="leverage-grid">
+                        <div class="leverage-item">
+                            <div class="leverage-number">01</div>
+                            <div class="leverage-content">
+                                <h4>Productivity Amplification</h4>
+                                <p>Rather than replacing human creativity, GenAI serves as a powerful collaborator that can handle routine tasks, generate multiple iterations quickly, and provide creative inspiration.</p>
+                            </div>
+                        </div>
+                        <div class="leverage-item">
+                            <div class="leverage-number">02</div>
+                            <div class="leverage-content">
+                                <h4>Rapid Prototyping</h4>
+                                <p>From concept to creation in minutes rather than hours or days, enabling faster experimentation and iteration cycles.</p>
+                            </div>
+                        </div>
+                        <div class="leverage-item">
+                            <div class="leverage-number">03</div>
+                            <div class="leverage-content">
+                                <h4>Personalization at Scale</h4>
+                                <p>Create customized content for different audiences, languages, or contexts without proportional increases in time and resources.</p>
+                            </div>
+                        </div>
+                        <div class="leverage-item">
+                            <div class="leverage-number">04</div>
+                            <div class="leverage-content">
+                                <h4>Cost-Effective Innovation</h4>
+                                <p>Access to professional-quality content creation tools without requiring specialized skills or expensive software licenses.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="explanation-section demo-highlight">
+                    <h3>Perfect Example: This Presentation</h3>
+                    <p>Your presentation itself demonstrates these principles perfectly - you've created an interactive, AI-generated experience that breaks traditional presentation boundaries.</p>
+                    <div class="demo-points">
+                        <div class="demo-point">
+                            <div class="demo-icon">🔄</div>
+                            <div class="demo-text">
+                                <strong>Reimagine formats</strong> - Moving beyond static slides to dynamic, interactive experiences
+                            </div>
+                        </div>
+                        <div class="demo-point">
+                            <div class="demo-icon">⚡</div>
+                            <div class="demo-text">
+                                <strong>Accelerate creation</strong> - Generating all content (text, images, designs) using AI tools
+                            </div>
+                        </div>
+                        <div class="demo-point">
+                            <div class="demo-icon">🎯</div>
+                            <div class="demo-text">
+                                <strong>Enhance engagement</strong> - Creating more immersive and memorable presentations
+                            </div>
+                        </div>
+                        <div class="demo-point">
+                            <div class="demo-icon">🎨</div>
+                            <div class="demo-text">
+                                <strong>Democratize design</strong> - Achieving professional results without extensive design expertise
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-conclusion">
+                        <p><strong>You're not just learning about GenAI - you're experiencing it firsthand through this innovative presentation format.</strong></p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Concepts Section -->
-    <section id="concepts" class="page">
-        <h2 id="concepts-heading">Core Concepts</h2>
-        <p>High-level overview of foundational generative AI principles, adapted from key learnings.</p>
-        <div class="concepts-grid">
-            <div class="concept-card">
-                <h3>Transformers & Attention</h3>
-                <p>Neural architectures that power modern language models by focusing on relevant parts of input data for coherent generation.</p>
-            </div>
-            <div class="concept-card">
-                <h3>Generative Adversarial Networks (GANs)</h3>
-                <p>Two neural networks competing to produce realistic outputs, revolutionizing image and content synthesis.</p>
-            </div>
-            <div class="concept-card">
-                <h3>Diffusion Models</h3>
-                <p>Iterative denoising processes that generate high-quality images from noise, as seen in tools like DALL-E.</p>
-            </div>
-            <div class="concept-card">
-                <h3>Ethical AI & Applications</h3>
-                <p>Balancing innovation with responsibility across industries like healthcare, education, and creative fields.</p>
-            </div>
-        </div>
-        <div class="image-container right">
-            <img src="assets/images/picture4.png" alt="AI development illustration">
-        </div>
-    </section>    
+    
     <!-- Agents Section -->
     <section id="agent" class="concept-detail-page">
         <div class="concept-detail-container">
@@ -219,53 +311,26 @@
         </div>
     </section>
 
-    <!-- Crew AI Section -->
-    <section id="crewai" class="concept-detail-page">
+    <!-- Presentation Section -->
+    <section id="presentation" class="concept-detail-page">
         <div class="concept-detail-container">
             <div class="concept-header">
-                <h1 class="concept-title">Crew AI</h1>
-                <div class="concept-subtitle">Collaborative Multi-Agent Systems</div>
+                <h1 class="concept-title">My Presentation</h1>
+                <div class="concept-subtitle">Interactive Google Slides Presentation</div>
             </div>
-            
-            <div class="buzz-word">
-                <img src="assets/images/crewAi.gif" alt="Crew AI Animation">
-            </div>
-            
-            <div class="concept-explanation">
-                <div class="explanation-section">
-                    <h3>What is Crew AI?</h3>
-                    <p>Crew AI orchestrates multiple specialized AI agents to work together on complex tasks, mimicking human team collaboration. Each agent has distinct roles, enabling efficient problem-solving through division of labor.</p>
+        
+            <div class="presentation-container">
+                <div class="presentation-wrapper">
+                    <iframe 
+                        src="https://docs.google.com/presentation/d/1iGCYJApi7fWD5Pzq5C_zpM71c8SYNmO_/embed?start=false&loop=false&delayms=3000" 
+                        frameborder="0" 
+                        allowfullscreen="true" 
+                        mozallowfullscreen="true" 
+                        webkitallowfullscreen="true">
+                    </iframe>
                 </div>
-                
-                <div class="explanation-section">
-                    <h3>Benefits of Multi-Agent Collaboration</h3>
-                    <p>By combining diverse agent capabilities, Crew AI achieves higher accuracy and handles multifaceted challenges that single agents cannot, revolutionizing team-based AI applications.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Use Case Section -->
-    <section id="usecase" class="concept-detail-page">
-        <div class="concept-detail-container">
-            <div class="concept-header">
-                <h1 class="concept-title">Use Case</h1>
-                <div class="concept-subtitle">Practical Applications in Action</div>
-            </div>
-            
-            <div class="buzz-word">
-                <img src="assets/images/SampleUsecase_crewAi.gif" alt="Use Case Animation">
-            </div>
-            
-            <div class="concept-explanation">
-                <div class="explanation-section">
-                    <h3>Real-World Implementation</h3>
-                    <p>This use case demonstrates how Crew AI can be applied to automate customer service workflows, where different agents handle inquiry routing, response generation, and follow-up actions seamlessly.</p>
-                </div>
-                
-                <div class="explanation-section">
-                    <h3>Impact and Results</h3>
-                    <p>Implementing such systems leads to faster response times, improved customer satisfaction, and significant cost savings, showcasing the transformative potential of multi-agent AI in business operations.</p>
+                <div class="presentation-note">
+                    <p>Use the navigation controls within the presentation to browse through the slides.</p>
                 </div>
             </div>
         </div>
@@ -320,7 +385,58 @@
             <img src="assets/images/Picture5.png" alt="AI development illustration">
         </div>
     </section>
-
+    <!-- Tech Stack Section -->
+    <section id="techstack" class="page">
+        <h2 id="techstack-heading">Tech Stack Used</h2>
+        <p>The language models, development tools, Python libraries, and vector databases utilized across my projects are displayed below.</p>
+        <div class="concepts-grid">
+            <div class="concept-card">
+                <h3>Quick Query</h3>
+                <ul>
+                    <li><strong>Language Models:</strong> Using models like <code>llama-3.1-8b-instant</code> for generating and processing text-based data.</li>
+                    <li><strong>PyPDF2:</strong> For reading and extracting text from PDF documents.</li>
+                    <li><strong>python-docx (<code>docx</code>):</strong> For parsing Microsoft Word documents.</li>
+                    <li><strong>langchain.text_splitter.RecursiveCharacterTextSplitter:</strong> For breaking documents into manageable chunks while preserving context.</li>
+                    <li><strong>FAISS (<code>langchain_community.vectorstores.FAISS</code>):</strong> For fast similarity search over high-dimensional embeddings.</li>
+                </ul>
+            </div>
+            <div class="concept-card">
+                <h3>Jumbo</h3>
+                <ul>
+                    <li><strong>Langchain Groq (<code>langchain_groq.ChatGroq</code>):</strong> For integrating conversational AI using Groq’s API.</li>
+                    <li><strong>CrewAI (<code>crewai</code>):</strong> Framework for task management, agent coordination, and process automation.</li>
+                    <li><strong>FAISS (<code>faiss</code>):</strong> For fast similarity search over high-dimensional embeddings.</li>
+                    <li><strong>Plotly (<code>plotly.express</code>, <code>plotly.graph_objects</code>):</strong> For creating interactive visualizations and charts.</li>
+                    <li><strong>Pandas (<code>pandas</code>):</strong> For data manipulation and analysis.</li>
+                    <li><strong>TextBlob (<code>textblob</code>):</strong> For natural language processing tasks like sentiment analysis.</li>
+                    <li><strong>NumPy (<code>numpy</code>):</strong> For numerical computations and handling arrays.</li>
+                </ul>
+            </div>
+            <div class="concept-card">
+                <h3>Ask Harsha</h3>
+                <ul>
+                    <li><strong>Streamlit (<code>streamlit</code>):</strong> For building interactive web applications.</li>
+                    <li><strong>dotenv (<code>python-dotenv</code>):</strong> For managing environment variables securely.</li>
+                    <li><strong>OS (<code>os</code>):</strong> For interacting with the operating system and file system.</li>
+                    <li><strong>Base64 (<code>base64</code>):</strong> For encoding and decoding binary data to and from text formats.</li>
+                </ul>
+            </div>
+            <div class="concept-card">
+                <h3>Essentail</h3>
+                <ul>
+                    <li><strong>Qdrant (<code>qdrant-client</code>):</strong> Vector database for similarity search and storage.</li>
+                    <li><strong>HuggingFaceEmbeddings:</strong> For converting documents into embeddings for vector search.</li>
+                    <li><strong>Langchain Groq (<code>langchain_groq.ChatGroq</code>):</strong> For integrating conversational AI using Groq models.</li>
+                    <li><strong>PromptTemplate (<code>langchain.prompts.PromptTemplate</code>):</strong> For defining structured prompts for LLM queries.</li>
+                    <li><strong>RetrievalQA (<code>langchain.chains.RetrievalQA</code>):</strong> For building question-answering pipelines over document embeddings.</li>
+                </ul>
+                <p>Planning to integrate OCR (Optical Character Recognition) functionality.</p>
+            </div>
+        </div>
+        <div class="image-container right">
+            <img src="assets/images/picture4.png" alt="AI development illustration">
+        </div>
+    </section> 
     <!-- Thank You Section -->
     <section id="thankyou" class="page">
         
