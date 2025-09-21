@@ -16,6 +16,7 @@
             <li><a href="#genai-intro">Gen Ai</a></li>
             <li><a href="#agent">Agents</a></li>
             <li><a href="#basicagent">Basic Agent</a></li>
+            <li><a href="#responsible-ai">Responsible AI</a></li>
             <li><a href="#presentation">Presentation</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#techstack">Tech Stack</a></li>
@@ -284,7 +285,64 @@
             </div>
         </div>
     </section>
-
+    <!-- Responsible AI Section -->
+    <section id="responsible-ai" class="concept-detail-page">
+        <div class="concept-detail-container">
+            <div class="concept-header">
+                <h1 class="concept-title">Responsible AI</h1>
+                <div class="concept-subtitle">Building ethical and trustworthy AI systems</div>
+            </div>
+        
+            <div class="buzz-word">
+                <img src="assets/images/responsible-ai.gif" alt="Responsible AI Animation">
+            </div>
+        
+            <div class="concept-explanation">
+                <div class="explanation-section">
+                    <h3>Core Principles of Responsible AI</h3>
+                    <div class="key-points">
+                        <div class="key-point">
+                            <div class="point-icon">🛡️</div>
+                            <div>
+                                <strong>Fairness & Bias Mitigation</strong>
+                                Ensuring AI systems treat all individuals and groups equitably, actively identifying and reducing discriminatory outcomes.
+                            </div>
+                        </div>
+                        <div class="key-point">
+                            <div class="point-icon">🔍</div>
+                            <div>
+                                <strong>Transparency & Explainability</strong>
+                                Making AI decision-making processes understandable and auditable for users and stakeholders.
+                            </div>
+                        </div>
+                        <div class="key-point">
+                            <div class="point-icon">🔒</div>
+                            <div>
+                                <strong>Privacy & Security</strong>
+                                Protecting user data and ensuring robust security measures throughout the AI lifecycle.
+                            </div>
+                        </div>
+                        <div class="key-point">
+                            <div class="point-icon">👥</div>
+                            <div>
+                                <strong>Human-AI Collaboration</strong>
+                                Maintaining meaningful human oversight and control in AI-assisted decision-making processes.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="explanation-section">
+                    <h3>Implementation in Practice</h3>
+                    <p>Responsible AI isn't just about compliance—it's about building systems that enhance human capabilities while maintaining ethical standards. This includes regular audits, diverse development teams, and continuous monitoring of AI system performance across different user groups.</p>
+                
+                    <div class="demo-highlight">
+                        <p><strong>Key Takeaway:</strong> Every AI project should start with responsible AI principles, not retrofit them later. This ensures better outcomes for both users and organizations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Presentation Section -->
     <section id="presentation" class="concept-detail-page">
         <div class="concept-detail-container">
@@ -360,107 +418,142 @@
         </div>
     </section>
     <!-- Tech Stack Section -->
+    
     <section id="techstack" class="page">
-        <h2 id="techstack-heading">Tech Stack Used</h2>
-        <p>The language models, development tools, Python libraries, and vector databases utilized across my projects are displayed below.</p>
+        <h2 id="techstack-heading">Technology Stack Overview</h2>
+        <p>A comprehensive overview of the key technologies, frameworks, and tools powering our AI applications.</p>
         <div class="concepts-grid">
+            <!-- Core AI & ML -->
             <div class="concept-card">
                 <div class="card-header">
-                    <h3>Quick Query</h3>
+                    <h3>🤖 AI & Language Models</h3>
                 </div>
                 <div class="tech-content">
                     <div class="tech-item">
-                        <strong>Language Models:</strong> Using models like <code>llama-3.1-8b-instant</code> for generating and processing text-based data.
+                        <strong>Groq API:</strong> High-performance inference for <code>llama-3.1-8b-instant</code> and other LLMs
                     </div>
                     <div class="tech-item">
-                        <strong>PyPDF2:</strong> For reading and extracting text from PDF documents.
+                        <strong>HuggingFace:</strong> Pre-trained embeddings and transformer models
                     </div>
                     <div class="tech-item">
-                        <strong>python-docx:</strong> For parsing Microsoft Word documents.
+                        <strong>CrewAI:</strong> Multi-agent coordination and task automation framework
                     </div>
                     <div class="tech-item">
-                        <strong>Text Splitter:</strong> For breaking documents into manageable chunks while preserving context.
-                    </div>
-                    <div class="tech-item">
-                        <strong>FAISS:</strong> For fast similarity search over high-dimensional embeddings.
+                        <strong>LangChain:</strong> LLM application development and prompt management
                     </div>
                 </div>
             </div>
+
+        <!-- Vector Databases & Search -->
             <div class="concept-card">
                 <div class="card-header">
-                    <h3>Jumbo</h3>
+                    <h3>🔍 Vector Storage & Search</h3>
                 </div>
                 <div class="tech-content">
                     <div class="tech-item">
-                        <strong>Langchain Groq:</strong> For integrating conversational AI using Groq's API.
+                        <strong>FAISS:</strong> Fast similarity search for high-dimensional embeddings
                     </div>
                     <div class="tech-item">
-                        <strong>CrewAI:</strong> Framework for task management, agent coordination, and process automation.
+                        <strong>Qdrant:</strong> Production-ready vector database for scalable search
                     </div>
                     <div class="tech-item">
-                        <strong>FAISS:</strong> For fast similarity search over high-dimensional embeddings.
+                        <strong>Text Splitters:</strong> Document chunking while preserving context
                     </div>
                     <div class="tech-item">
-                        <strong>Plotly:</strong> For creating interactive visualizations and charts.
-                    </div>
-                    <div class="tech-item">
-                        <strong>Pandas:</strong> For data manipulation and analysis.
-                    </div>
-                    <div class="tech-item">
-                        <strong>TextBlob:</strong> For natural language processing tasks like sentiment analysis.
-                    </div>
-                    <div class="tech-item">
-                        <strong>NumPy:</strong> For numerical computations and handling arrays.
+                        <strong>RetrievalQA:</strong> Question-answering pipelines over document embeddings
                     </div>
                 </div>
             </div>
+
+            <!-- Web Frameworks & APIs -->
             <div class="concept-card">
                 <div class="card-header">
-                    <h3>Ask Harsha</h3>
+                    <h3>🌐 Web Frameworks & APIs</h3>
                 </div>
                 <div class="tech-content">
                     <div class="tech-item">
-                        <strong>Streamlit:</strong> For building interactive web applications.
+                        <strong>Streamlit:</strong> Interactive web applications for ML/AI demos
                     </div>
                     <div class="tech-item">
-                        <strong>python-dotenv:</strong> For managing environment variables securely.
+                        <strong>FastAPI:</strong> High-performance API development (StepBeyond)
                     </div>
                     <div class="tech-item">
-                        <strong>OS:</strong> For interacting with the operating system and file system.
+                        <strong>Microsoft Teams API:</strong> Calendar integration for SmartMeet
                     </div>
                     <div class="tech-item">
-                        <strong>Base64:</strong> For encoding and decoding binary data to and from text formats.
+                        <strong>Google APIs:</strong> Authentication and Sheets integration (Khelruyt)
                     </div>
                 </div>
             </div>
+
+            <!-- Data Processing -->
             <div class="concept-card">
                 <div class="card-header">
-                    <h3>Essential</h3>
+                    <h3>📊 Data Processing & Analysis</h3>
                 </div>
                 <div class="tech-content">
                     <div class="tech-item">
-                        <strong>Qdrant:</strong> Vector database for similarity search and storage.
+                        <strong>Pandas:</strong> Data manipulation and analysis across all projects
                     </div>
                     <div class="tech-item">
-                        <strong>HuggingFace Embeddings:</strong> For converting documents into embeddings for vector search.
+                        <strong>NumPy:</strong> Numerical computations and array operations
                     </div>
                     <div class="tech-item">
-                        <strong>Langchain Groq:</strong> For integrating conversational AI using Groq models.
+                        <strong>PyPDF2 & python-docx:</strong> Document parsing and text extraction
                     </div>
                     <div class="tech-item">
-                        <strong>PromptTemplate:</strong> For defining structured prompts for LLM queries.
+                        <strong>OpenPyXL:</strong> Excel file processing and manipulation
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visualization & UI -->
+            <div class="concept-card">
+                <div class="card-header">
+                    <h3>📈 Visualization & Analytics</h3>
+                </div>
+                <div class="tech-content">
+                    <div class="tech-item">
+                        <strong>Plotly:</strong> Interactive charts and data visualizations
                     </div>
                     <div class="tech-item">
-                        <strong>RetrievalQA:</strong> For building question-answering pipelines over document embeddings.
+                        <strong>TextBlob:</strong> Natural language processing and sentiment analysis
+                    </div>
+                    <div class="tech-item">
+                        <strong>scikit-learn:</strong> Machine learning utilities and preprocessing
+                    </div>
+                    <div class="tech-item">
+                        <strong>NLTK:</strong> Text processing and linguistic analysis
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cloud & Deployment -->
+            <div class="concept-card">
+                <div class="card-header">
+                    <h3>☁️ Cloud & Deployment</h3>
+                </div>
+                <div class="tech-content">
+                    <div class="tech-item">
+                        <strong>Render.com:</strong> Cloud hosting for FastAPI applications (StepBeyond)
+                    </div>
+                    <div class="tech-item">
+                        <strong>Google Cloud:</strong> Authentication and Sheets API integration
+                    </div>
+                    <div class="tech-item">
+                        <strong>GitHub Pages:</strong> Static site hosting for project showcases
+                    </div>
+                    <div class="tech-item">
+                        <strong>Environment Management:</strong> python-dotenv for secure config
                     </div>
                     <div class="tech-note">
-                        <em>Planning to integrate OCR (Optical Character Recognition) functionality.</em>
+                        <em>Optimized for memory-efficient deployment on free-tier services</em>
                     </div>
                 </div>
             </div>
         </div>
         <div class="image-container right">
-            <img src="assets/images/picture4.png" alt="AI development illustration">
+            <img src="assets/images/picture4.png" alt="Technology stack illustration">
         </div>
     </section>
     <!-- Thank You Section -->
