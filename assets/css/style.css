@@ -1060,29 +1060,28 @@ img {
 .project-preview-card:hover .project-preview-content p {
     color: #333 !important;
 }
-/* Concept Detail Page Styles */
-.concept-detail-page {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    position: relative;
-    padding: 2rem 0;
-    overflow-x: hidden;
+/* Adjust the main concept detail container */
+.concept-detail-page .concept-detail-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left; /* Keep text left-aligned within containers */
 }
 
-.concept-detail-page:nth-child(even) {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+/* Improve the concept explanation section */
+.concept-detail-page .concept-explanation {
+    width: 100%;
+    max-width: 900px; /* Reduce max-width to prevent text from going too far right */
+    margin: 0 auto;
 }
 
-.concept-detail-page:nth-child(3n) {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-}
-
-.concept-detail-page:nth-child(4n) {
-    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-}
-
-.concept-detail-page:nth-child(5n) {
-    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+/* Better spacing for explanation sections */
+.concept-detail-page .explanation-section {
+    margin-bottom: 2.5rem;
+    width: 100%;
 }
 
 .concept-detail-container {
@@ -1090,7 +1089,49 @@ img {
     margin: 0 auto;
     padding: 0 2rem;
 }
+/* Improve key points layout in Responsible AI section */
+.responsible-ai .key-points {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+    width: 100%;
+}
 
+.responsible-ai .key-point {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-color, #6366f1);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.responsible-ai .key-point:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.2);
+}
+
+.responsible-ai .point-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+}
+
+.responsible-ai .key-point div:last-child {
+    flex: 1;
+    line-height: 1.6;
+}
+
+.responsible-ai .key-point strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color, #6366f1);
+    font-weight: 600;
+}
 /* Concept Header */
 .concept-header {
     text-align: center;
@@ -1113,7 +1154,47 @@ img {
     font-weight: 300;
     font-style: italic;
 }
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .responsible-ai .key-points {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
 
+@media (max-width: 768px) {
+    .concept-detail-page .concept-detail-container {
+        padding: 1rem;
+    }
+    
+    .concept-detail-page .concept-explanation {
+        max-width: 100%;
+    }
+    
+    .responsible-ai .key-point {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .responsible-ai .point-icon {
+        margin-top: 0;
+    }
+}
+
+/* Improve the demo highlight section */
+.demo-highlight {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1));
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.demo-highlight strong {
+    color: var(--primary-color, #6366f1);
+}
 /* Visual Section */
 .concept-visual {
     display: flex;
