@@ -1060,77 +1060,149 @@ img {
 .project-preview-card:hover .project-preview-content p {
     color: #333 !important;
 }
-/* Adjust the main concept detail container */
-.concept-detail-page .concept-detail-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
+/* Fix for Responsible AI section - Image and Icon/Text spacing issues */
+
+/* Fix the buzz-word image container */
+.concept-detail-page .buzz-word {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    text-align: left; /* Keep text left-aligned within containers */
-}
-
-/* Improve the concept explanation section */
-.concept-detail-page .concept-explanation {
+    margin: 2rem 0 3rem 0;
     width: 100%;
-    max-width: 900px; /* Reduce max-width to prevent text from going too far right */
-    margin: 0 auto;
+    min-height: 200px; /* Ensure minimum height for image container */
 }
 
-/* Better spacing for explanation sections */
-.concept-detail-page .explanation-section {
-    margin-bottom: 2.5rem;
-    width: 100%;
+.concept-detail-page .buzz-word img {
+    max-width: 100%;
+    max-height: 300px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    /* Fallback if image doesn't load */
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2));
 }
 
-.concept-detail-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-/* Improve key points layout in Responsible AI section */
-.responsible-ai .key-points {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin: 1.5rem 0;
-    width: 100%;
+/* If image fails to load, show a placeholder */
+.concept-detail-page .buzz-word img:not([src]),
+.concept-detail-page .buzz-word img[src=""] {
+    display: none;
 }
 
+/* Alternative: Create a fallback placeholder when image doesn't work */
+.concept-detail-page .buzz-word::after {
+    content: "🤖 Responsible AI";
+    display: block;
+    font-size: 3rem;
+    text-align: center;
+    color: #6366f1;
+    font-weight: bold;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1));
+    border-radius: 16px;
+    border: 2px dashed rgba(99, 102, 241, 0.3);
+    min-width: 300px;
+}
+
+/* Hide the fallback when image loads properly */
+.concept-detail-page .buzz-word img[src]:not([src=""]) + *::after,
+.concept-detail-page .buzz-word:has(img[src]:not([src=""]))::after {
+    display: none;
+}
+
+/* MAJOR FIX: Improve icon size and reduce gap between icon and text */
 .responsible-ai .key-point {
     display: flex;
     align-items: flex-start;
-    gap: 1rem;
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    border-left: 4px solid var(--primary-color, #6366f1);
-    backdrop-filter: blur(10px);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    gap: 0.8rem; /* Reduced from 1rem to bring text closer */
+    padding: 1.8rem;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    border-left: 4px solid #6366f1;
+    backdrop-filter: blur(15px);
+    transition: all 0.3s ease;
+    min-height: 110px;
 }
 
-.responsible-ai .key-point:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.2);
-}
-
+/* MAJOR FIX: Make icons larger and more prominent */
 .responsible-ai .point-icon {
-    font-size: 1.5rem;
+    font-size: 2.2rem; /* Increased from 1.5rem */
     flex-shrink: 0;
-    margin-top: 0.2rem;
+    margin-top: 0.1rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    line-height: 1;
+    width: 2.5rem; /* Fixed width for consistent alignment */
+    text-align: center;
 }
 
+/* Improve text content positioning */
 .responsible-ai .key-point div:last-child {
     flex: 1;
     line-height: 1.6;
+    margin-top: 0.2rem; /* Slight adjustment to align better with icon */
 }
 
+/* Enhanced title styling with better spacing */
 .responsible-ai .key-point strong {
     display: block;
-    margin-bottom: 0.5rem;
-    color: var(--primary-color, #6366f1);
+    margin-bottom: 0.6rem; /* Reduced from 0.8rem for tighter spacing */
+    color: #ffffff;
     font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.3px;
+}
+
+/* Description text with improved readability */
+.responsible-ai .key-point div:last-child {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+}
+
+/* Enhanced hover effect */
+.responsible-ai .key-point:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(99, 102, 241, 0.25);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.responsible-ai .key-point:hover .point-icon {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .responsible-ai .point-icon {
+        font-size: 2rem;
+        width: 2.2rem;
+    }
+    
+    .responsible-ai .key-point {
+        gap: 0.6rem;
+        padding: 1.5rem;
+    }
+    
+    /* Stack vertically on very small screens if needed */
+    .responsible-ai .key-point {
+        flex-direction: row; /* Keep horizontal layout */
+        text-align: left;
+    }
+}
+
+/* Grid improvements for better spacing */
+.responsible-ai .key-points {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem; /* Slightly reduced gap between cards */
+    margin: 2rem 0;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .responsible-ai .key-points {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
 }
 /* Concept Header */
 .concept-header {
