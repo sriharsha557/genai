@@ -8,7 +8,18 @@
     box-sizing: border-box;
 }
 
-
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    color: #222;
+    background-color: #f8f9fa;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
 
 /* Navigation */
 #navbar {
@@ -1482,21 +1493,35 @@ img {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Navigation: Dark glossy look */
-#navbar {
-    background: rgba(0,0,0,0.6);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+/* Navigation Updates */
+#navbar ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+}
+
+#navbar li {
+    list-style: none;
 }
 
 #navbar a {
-    color: #fff;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
 }
 
-#navbar a:hover, #navbar a.active {
-    background: rgba(0,200,255,0.15);
-    color: #00d9ff;
+#navbar a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
 }
 
 /* Animations */
@@ -1765,12 +1790,10 @@ html {
         font-size: 0.9rem;
     }
 }
-/* === Dark Glossy Background + Light Effect === */
+/* Dark Theme Override */
 body {
-    background: #0a0f1c;
-    color: #fff;
-    font-family: 'Inter', sans-serif;
-    overflow: hidden; /* We'll control scroll via JS */
+    background-color: #111111 !important;
+    color: white !important;
 }
 
 /* All sections get dark background */
@@ -1778,43 +1801,7 @@ section {
     background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%) !important;
     color: white !important;
 }
-/* Each section full screen horizontally */
-.page {
-    min-width: 100vw;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    flex-shrink: 0;
-    background: radial-gradient(circle at 50% -20%, rgba(255,255,255,0.2), transparent 70%),
-                linear-gradient(to bottom, rgba(255,255,255,0.05), rgba(0,0,0,0.85));
-    box-shadow: inset 0 0 100px rgba(0,0,0,0.6);
-}
 
-/* Add a subtle glow overlay */
-.page::before {
-    content: "";
-    position: absolute;
-    top: -30%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* Text styling to pop */
-h1, h2 {
-    color: #fff;
-    text-shadow: 0 0 20px rgba(255,255,255,0.4), 0 0 40px rgba(0,200,255,0.3);
-}
-
-p {
-    color: rgba(255,255,255,0.85);
-}
 /* Ensure all text elements are white */
 h1, h2, h3, h4, h5, h6, p, li, span {
     color: white !important;
