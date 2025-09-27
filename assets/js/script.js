@@ -424,3 +424,48 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log('✨ Enhanced AI Presentation loaded successfully!');
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll("section.page");
+    const container = document.createElement("div");
+
+    // Wrap sections inside container for horizontal layout
+    container.classList.add("scroll-container");
+    sections.forEach(sec => container.appendChild(sec));
+    document.body.appendChild(container);
+
+    // Apply CSS flex layout for horizontal scrolling
+    Object.assign(container.style, {
+        display: "flex",
+        flexDirection: "row",
+        transition: "transform 0.8s ease-in-out",
+        width: `${sections.length * 100}vw`,
+    });
+
+    let currentIndex = 0;
+    let isScrolling = false;
+
+    function goToSection(index) {
+        if (index < 0 || index >= sections.length) return;
+        isScrolling = true;
+        currentIndex = index;
+        container.style.transform = `translateX(-${index * 100}vw)`;
+        setTimeout(() => { isScrolling = false; }, 900);
+    }
+
+    // Listen for wheel events
+    window.addEventListener("wheel", (e) => {
+        if (isScrolling) return;
+        if (e.deltaY > 0) {
+            goToSection(currentIndex + 1); // scroll down → right
+        } else if (e.deltaY < 0) {
+            goToSection(currentIndex - 1); // scroll up → left
+        }
+    });
+
+    // Optional: allow arrow keys navigation
+    window.addEventListener("keydown", (e) => {
+        if (isScrolling) return;
+        if (e.key === "ArrowDown" || e.key === "ArrowRight") goToSection(currentIndex + 1);
+        if (e.key === "ArrowUp" || e.key === "ArrowLeft") goToSection(currentIndex - 1);
+    });
+});
